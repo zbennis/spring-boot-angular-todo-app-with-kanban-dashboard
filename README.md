@@ -7,11 +7,13 @@ Used package manager is yarn:
 To serve the frontend angular app navigate to the frontend directory and run the following commands:
 1- yarn install
 2- yarn start
+Open thi url(http://localhost:4200) in your favorite browser.  
 
 # Backend
 
 To run de backend with Intellij you can start it directly from the runner.
 Or cd to backend and run one of the following commands -> ./gradlew run or ./gradlew bootRun 
+Default (hardcoded) user is -> pseudo:test , pw:test.
 
 ### TODOS 
 1. Allow users to signUp
