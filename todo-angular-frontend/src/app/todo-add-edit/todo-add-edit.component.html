@@ -1,0 +1,41 @@
+<div *ngIf="todoEntry || isCreateMode()" class="container">
+  <div class="card">
+    <div class="card-body">
+      <div class="card-title">
+        <h3><span class="badge badge-primary">Be creative and keep it short!</span></h3>
+      </div>
+      <div class="card-text">
+        <form>
+          <div class="form-group">
+            <label>Description:</label>
+            <input (ngModelChange)="todoEntry.description=$event" [ngModelOptions]="{standalone: true}"
+                   [ngModel]="todoEntry?.description" class="form-control" required="true" type="text"/>
+          </div>
+          <!-- <div class="form-group">
+            <label>Due Date:</label>
+            <input (ngModelChange)="todoEntry.dueDate=$event" [ngModelOptions]="{standalone: true}"
+                   [ngModel]="todoEntry?.dueDate" class="form-control" type="text"/>
+          </div> -->
+          <div class="form-group">
+            <label for="todo-entry-state">State:</label>
+            <div>
+              <div class="d-inline-block" ngbDropdown>
+                <button class="btn btn-outline-primary" id="todo-entry-state" ngbDropdownToggle>
+                  {{ todoEntry.state || defaultState }}
+                </button>
+                <div *ngIf="todoEntryStateEntries" aria-labelledby="todo-entry-state" ngbDropdownMenu>
+                  <button (click)="todoEntry.state = todoState" *ngFor="let todoState of todoEntryStateEntries | async"
+                          class="dropdown-item">
+                    {{ todoState }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button (click)="addUpdateTodoEntry()" class="btn btn-success m-2" type="submit">Save</button>
+          <button (click)="cancel()" class="btn btn-secondary" type="submit">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
