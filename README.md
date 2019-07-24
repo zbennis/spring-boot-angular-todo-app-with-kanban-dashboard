@@ -11,9 +11,9 @@ To serve the frontend angular app navigate to the frontend directory and run the
 
 # Backend
 
-To run de backend with Intellij you can start it directly from the runner.
-Or cd to backend and run one of the following commands -> ./gradlew run or ./gradlew bootRun 
-Default (hardcoded) user is -> pseudo:test , pw:test.
+You can run the backend either with Intellij App runner or
+cd to backend directory and run one of the following commands -> ./gradlew run or ./gradlew bootRun.
+Default (hardcoded) user is -> (pseudo:test , pw:test )for both backend and frontend.
 
 ### TODOS 
 1. Allow users to signUp
