@@ -1,7 +1,7 @@
 # spring-boot-angular-todo-app-with-kanban-dashboard
 A todo app made with spring boot(2.1.6), angular(8.1.1) as main technologies as well as other technologies...
 
-![](kanban-dahsboard.png)
+![](kanban-dashboard.png)
 
 # Frontend 
 
