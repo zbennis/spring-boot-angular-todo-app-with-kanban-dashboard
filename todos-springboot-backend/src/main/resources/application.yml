@@ -5,8 +5,8 @@ spring.profiles.active: h2
 spring:
   security:
     user:
-      name: john
-      password: doe
+      name: test
+      password: test
 ---
 
 spring:
