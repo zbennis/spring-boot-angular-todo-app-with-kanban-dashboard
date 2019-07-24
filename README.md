@@ -5,9 +5,9 @@ A todo app made with spring boot(2.1.6), angular(8.1.1) as main technologies as 
 
 Used package manager is yarn:
 To serve the frontend angular app navigate to the frontend directory and run the following commands:
-1- yarn install
-2- yarn start
-Open thi url(http://localhost:4200) in your favorite browser.  
+1. yarn install
+2. yarn start
+3.Open this url (http://localhost:4200) in your favorite browser.  
 
 # Backend
 
