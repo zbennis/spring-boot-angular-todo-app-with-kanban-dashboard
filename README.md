@@ -21,3 +21,4 @@ Default (hardcoded) user is -> pseudo:test , pw:test.
 3. Add Unit and Integration tests
 4. Integrate CI trough Travis ci
 5. Dockerize
+6. Add the possibility to drag&drop the items between the different branches in the kanbabn dashboard.
