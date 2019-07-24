@@ -7,7 +7,7 @@ Used package manager is yarn:
 To serve the frontend angular app navigate to the frontend directory and run the following commands:
 1. yarn install
 2. yarn start
-3.Open this url (http://localhost:4200) in your favorite browser.  
+3. Open this url (http://localhost:4200) in your favorite browser.  
 
 # Backend
 
