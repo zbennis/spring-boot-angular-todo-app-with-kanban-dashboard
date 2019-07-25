@@ -1,32 +1,45 @@
 sudo: required
 dist: trusty
 
+branches:
+  only:
+    - master
+
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
 matrix:
   include:
+
+    #BACKEND
     - language: java
       jdk: openjdk8
-        script:
-          - ./gradlew clean
-          - ./gradlew check
-          - ./gradlew test
-          - ./gradlew jacocoTestCoverageVerification
-          - ./gradlew jacocoTestReport
-          - ./gradlew build
-        after_success:
-          - ./graldew javadoc
+      script:
+        - ./gradlew clean
+        - ./gradlew check
+        - ./gradlew test
+        - ./gradlew jacocoTestCoverageVerification
+        - ./gradlew jacocoTestReport
+        - ./gradlew build
+      after_success:
+      - ./graldew javadoc
+      before_script:
+        - cd ./todos-springboot-backend/
 
-        before_script:
-          - cd ./todos-springboot-backend/
+    #FRONTEND
     - language: node_js
       node_js: stable
-        install:
-          - yarn install
-        before_install:
-          - cd ./todo-angular-frontend/
-        script:
-          - yarn lint
-          - yarn build
-
+      install:
+        - yarn install
+      before_install:
+        - cd ./todo-angular-frontend/
+      script:
+        - yarn lint
+        - yarn build
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -36,4 +49,3 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
     - '$HOME/.sonar/cache'
-
