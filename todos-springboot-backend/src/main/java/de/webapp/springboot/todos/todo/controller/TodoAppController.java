@@ -75,7 +75,7 @@ public class TodoAppController {
         todoDescriptions.add("Learn Angular");
         todoDescriptions.add("Fix build");
         todoDescriptions.add("Implement Backend");
-        todoDescriptions.add("User Travis-ci");
+        todoDescriptions.add("Integrate ci");
         todoDescriptions.add("Implement frontend");
         todoDescriptions.add("Learn Kubernetes");
         todoDescriptions.add("Learn something! don't be lazy");

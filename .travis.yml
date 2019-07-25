@@ -39,7 +39,7 @@ matrix:
         - cd ./todo-angular-frontend/
       script:
         - yarn lint
-        - yarn build
+        - yarn build --prod
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -48,4 +48,4 @@ cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
-    - '$HOME/.sonar/cache'
+    #- '$HOME/.sonar/cache'
