@@ -1,0 +1,22 @@
+language: java
+jdk: openjdk8
+
+ 
+addons:
+  sonarcloud:
+    organization: "zbennis"
+    token:
+      secure: "c6077f214252e8ffbe431db08fe7999fed85c4bd"
+ 
+script:
+  ./gradlew clean
+  ./gradlew check 
+  ./gradlew test
+  ./gradlew jacocoTestCoverageVerification
+  ./gradlew jacocoTestReport
+  ./gradlew build
+  
+
+after_success:
+     ./graldew javadoc
+
