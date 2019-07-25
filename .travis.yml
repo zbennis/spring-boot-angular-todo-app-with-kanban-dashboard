@@ -1,0 +1,27 @@
+language: java
+
+jdk: openjdk8
+
+ 
+addons:
+  sonarcloud:
+    organization: "zbennis"
+    token:
+      secure: "c6077f214252e8ffbe431db08fe7999fed85c4bd"
+ 
+script:
+    - ./todos-springboot-backend/gradlew clean
+    - ./todos-springboot-backend/gradlew check 
+    - ./todos-springboot-backend/gradlew test
+    - ./todos-springboot-backend/gradlew jacocoTestCoverageVerification
+    - ./todos-springboot-backend/gradlew jacocoTestReport
+    - ./todos-springboot-backend/gradlew build
+  
+
+cache:
+  directories:
+    - '$HOME/.sonar/cache'
+
+after_success:
+     ./graldew javadoc
+
