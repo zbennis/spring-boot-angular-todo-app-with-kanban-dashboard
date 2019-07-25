@@ -30,7 +30,7 @@ export class KanbanDashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.getUserNameFromLoginService();
   }
 
 

@@ -31,7 +31,7 @@
           <a class="nav-link text-white btn btn-info my-2 my-sm-0" href="/signUp">Sign-up</a>
         </li>
         <li *ngIf="loginService.isUserLoggedIn()" class="m-3">
-          <span class="text-light">Hello, {{loginService.getDecodedAuthenticatedUserIdentifier()}}</span>
+          <span class="text-light">Hello, {{userName}}</span>
         </li>
         <li *ngIf="loginService.isUserLoggedIn()">
           <a class="nav-link text-white btn btn-outline-secondary my-2 my-sm-0" href="/logout">Logout</a>

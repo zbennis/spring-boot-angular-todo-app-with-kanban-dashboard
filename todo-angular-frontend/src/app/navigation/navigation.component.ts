@@ -8,11 +8,19 @@ import {AuthenticationService} from '../shared/service/authentication.service';
 })
 export class NavigationComponent implements OnInit {
 
+  userName: string;
+
   constructor(public loginService: AuthenticationService) {
   }
 
   ngOnInit() {
+    this.subscribeToUserName();
+  }
 
+  private subscribeToUserName() {
+    this.loginService.getDecodedAuthenticatedUserIdentifier().subscribe( inUserName => {
+        this.userName = inUserName;
+    });
   }
 
 
