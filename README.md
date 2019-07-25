@@ -25,6 +25,5 @@ Default (hardcoded) user is -> (pseudo:test , pw:test )for both backend and fron
 1. Allow users to signUp
 2. Integrate a reasonable security, since we are using a basic hardcoded version for now
 3. Add Unit and Integration tests
-4. Integrate CI through Travis ci
 5. Dockerize
 6. Add the possibility to drag&drop the items between the different branches in the kanbabn dashboard.
