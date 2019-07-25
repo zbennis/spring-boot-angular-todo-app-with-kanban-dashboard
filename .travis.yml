@@ -1,8 +1,6 @@
 sudo: required
 dist: trusty
 
-
-
 matrix:
   include:
     - language: java
@@ -22,7 +20,7 @@ matrix:
     - language: node_js
       node_js: stable
         install:
-          - npm install
+          - yarn install
         before_install:
           - cd ./todo-angular-frontend/
         script:
