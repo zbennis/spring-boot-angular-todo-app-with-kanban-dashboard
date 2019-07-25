@@ -1,0 +1,43 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <a class="navbar-brand">
+      <span class="badge badge-light title">Task/Kanban @CodingForFun</span>
+    </a>
+    <!-- TODO <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+            class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>-->
+
+    <div class="navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li *ngIf="loginService.isUserLoggedIn()" class="nav-item active">
+          <a
+            class="nav-link text-white cutomizedHover" routerLink="/welcome/{{loginService.getAuthenticatedUserIdentifier()}}">
+            Home
+          </a>
+        </li>
+        <li *ngIf="loginService.isUserLoggedIn()" class="nav-item">
+          <a
+            class="nav-link text-white cutomizedHover" routerLink="/todos/{{loginService.getAuthenticatedUserIdentifier()}}">
+            Todos
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav navbar-collapse justify-content-end">
+        <li *ngIf="!loginService.isUserLoggedIn()">
+          <a class="nav-link text-white btn btn-primary m-2 my-2 my-sm-0" href="/login">Login</a>
+        </li>
+        <li *ngIf="!loginService.isUserLoggedIn()">
+          <a class="nav-link text-white btn btn-info my-2 my-sm-0" href="/signUp">Sign-up</a>
+        </li>
+        <li *ngIf="loginService.isUserLoggedIn()" class="m-3">
+          <span class="text-light">Hello, {{loginService.getDecodedAuthenticatedUserIdentifier()}}</span>
+        </li>
+        <li *ngIf="loginService.isUserLoggedIn()">
+          <a class="nav-link text-white btn btn-outline-secondary my-2 my-sm-0" href="/logout">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+

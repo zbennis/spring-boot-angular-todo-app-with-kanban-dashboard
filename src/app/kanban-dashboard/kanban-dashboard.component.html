@@ -1,0 +1,73 @@
+<div class="dashboard">
+  <div class="container">
+    <h3><span class="badge badge-warning btn-lg btn-block text-white">Kanban Board</span></h3>
+    <div class="row">
+      <div class="col m-2 container-fluid" style="background-color: #43e8b9;border-radius: 5px;">
+        <div *ngIf="ideaState" class="m-3">
+          <h5><span class="badge badge-info btn-lg btn-block text-white">IDEA</span></h5>
+          <div *ngFor="let entry of ideaState">
+            <a routerLink="/todos/{{loginService.getDecodedAuthenticatedUserIdentifier()}}/{{entry.id}}"
+               data-toggle="tooltip" data-placement="bottom" title="Click me to edit!">
+              <span  class="badge badge-info m-2 text-light">
+                {{entry.description}}
+              </span>
+            </a>
+          </div>
+        </div>
+        <div *ngIf="!ideaState.length">
+          <span class="badge badge-secondary">bucket empty!</span>
+        </div>
+      </div>
+      <div class="col m-2 container-fluid" style="background-color: #ff7f5c;border-radius: 5px;">
+        <div *ngIf="todoState" class="m-3">
+          <h5><span class="badge badge-danger btn-lg btn-block text-white">TODO</span></h5>
+          <div *ngFor="let entry of todoState">
+            <a routerLink="/todos/{{loginService.getDecodedAuthenticatedUserIdentifier()}}/{{entry.id}}"
+               data-toggle="tooltip" data-placement="bottom" title="Click me to edit!">
+              <span class="badge badge-danger m-2 text-light">
+                {{entry.description}}
+              </span>
+            </a>
+          </div>
+        </div>
+        <div *ngIf="!todoState.length">
+          <span class="badge badge-secondary">bucket empty!</span>
+        </div>
+      </div>
+      <div class="col m-2 container-fluid" style="background-color: #5fa8f5;border-radius:5px;">
+        <div *ngIf="inProgressState" class="m-3">
+          <h5><span class="badge badge-primary btn-lg btn-block text-white">WORK IN PROGRESS</span></h5>
+          <div *ngFor="let entry of inProgressState">
+            <a routerLink="/todos/{{loginService.getDecodedAuthenticatedUserIdentifier()}}/{{entry.id}}"
+               data-toggle="tooltip" data-placement="bottom" title="Click me to edit!">
+              <span class="badge badge-primary m-2 text-light">
+                {{entry.description}}
+              </span>
+            </a>
+          </div>
+        </div>
+        <div *ngIf="!inProgressState.length">
+          <span class="badge badge-secondary">bucket empty!</span>
+        </div>
+      </div>
+      <div class="col m-2 container-fluid" style="background-color: #93f578;border-radius:5px;">
+        <div *ngIf="doneState" class="m-3">
+          <h5><span class="badge badge-success btn-lg btn-block text-white">DONE</span></h5>
+          <div *ngFor="let entry of doneState">
+            <a routerLink="/todos/{{loginService.getDecodedAuthenticatedUserIdentifier()}}/{{entry.id}}"
+               data-toggle="tooltip" data-placement="bottom" title="Click me to edit!">
+              <span class="badge badge-success m-2 text-light">
+                {{entry.description}}
+              </span>
+            </a>
+          </div>
+        </div>
+        <div *ngIf="!doneState.length">
+          <span class="badge badge-success">well done! the bucket is now empty!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TODO implement a drag and drop functionality -->

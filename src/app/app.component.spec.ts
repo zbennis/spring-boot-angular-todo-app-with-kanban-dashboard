@@ -1,12 +1,17 @@
-import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import {async, TestBed} from '@angular/core/testing';
+import {RouterTestingModule} from '@angular/router/testing';
+import {AppComponent} from './app.component';
+import {FormsModule, NgModel} from '@angular/forms';
+import {SimpleNotificationsModule} from 'angular2-notifications';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        FormsModule,
+        NgModel,
+        SimpleNotificationsModule.forRoot()
       ],
       declarations: [
         AppComponent

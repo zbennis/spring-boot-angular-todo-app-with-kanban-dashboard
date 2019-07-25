@@ -1,0 +1,29 @@
+button {
+  text-decoration-color: aliceblue;
+}
+
+
+/*.state {
+  border-radius: 10px;
+  text-align: center;
+}*/
+
+.dot {
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dotIdea {
+  background-color: #43e8b9;
+}
+.dotTodo {
+  background-color: #ff7f5c;
+}
+.dotProgress {
+  background-color: #5fa8f5;
+}
+.dotDone {
+  background-color: #93f578;
+}
