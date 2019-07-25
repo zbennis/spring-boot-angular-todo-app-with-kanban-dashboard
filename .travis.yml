@@ -18,10 +18,15 @@ script:
     - ./todos-springboot-backend/gradlew build
   
 
-cache:
-  directories:
-    - '$HOME/.sonar/cache'
-
 after_success:
      ./graldew javadoc
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - '$HOME/.sonar/cache'
 
