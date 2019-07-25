@@ -43,7 +43,7 @@ import {HttpRequestInterceptorService} from './shared/service/http-request-inter
     RouterModule
   ],
   providers: [
-    {provide:HTTP_INTERCEPTORS,useClass:HttpRequestInterceptorService,multi:true}
+    { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptorService , multi: true }
   ],
   bootstrap: [AppComponent]
 })

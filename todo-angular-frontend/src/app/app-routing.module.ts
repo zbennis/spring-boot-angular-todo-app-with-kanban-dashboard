@@ -3,7 +3,7 @@ import {KanbanDashboardComponent} from './kanban-dashboard/kanban-dashboard.comp
 import {LoginComponent} from './login/login.component';
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {TodosListComponent} from "./todos-list/todos-list.component";
+import {TodosListComponent} from './todos-list/todos-list.component';
 import {LogoutComponent} from './logout/logout.component';
 import {RouteGuardsService} from './shared/service/route-guards.service';
 import {TodoAddEditComponent} from './todo-add-edit/todo-add-edit.component';

@@ -22,11 +22,11 @@
           <span class="dot" [ngClass]="getDotClass(todoEntry.state)"></span> {{todoEntry.state}}
         </div>
       </td>
-      <td><a class="btn btn-success text-white"
-             routerLink="/todos/{{authenticationService.getAuthenticatedUserIdentifier()}}/{{todoEntry.id}}">Update</a>
+      <td><button class="btn btn-success text-white"
+             routerLink="/todos/{{authenticationService.getAuthenticatedUserIdentifier()}}/{{todoEntry.id}}">Update</button>
       </td>
-      <td><a (click)="deleteTodoEntry(authenticationService.getDecodedAuthenticatedUserIdentifier(),todoEntry.id)"
-             class="btn btn-danger text-white">Delete</a></td>
+      <td><button (click)="deleteTodoEntry(authenticationService.getDecodedAuthenticatedUserIdentifier(),todoEntry.id)"
+             class="btn btn-danger text-white">Delete</button></td>
     </tr>
     </tbody>
   </table>

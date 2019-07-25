@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthenticationService} from '../shared/service/authentication-service.service';
+import {AuthenticationService} from '../shared/service/authentication.service';
 import {TodoHttpClientService} from '../shared/service/todo-http-client-service.service';
 import {TodoEntryState} from '../shared/entity/TodoEntryState';
 import {TodoEntry} from '../shared/entity/TodoEntry';
@@ -27,7 +27,7 @@ export class KanbanDashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    let userName = this.loginService.getDecodedAuthenticatedUserIdentifier();
+    const userName = this.loginService.getDecodedAuthenticatedUserIdentifier();
     this.divideList();
   }
 

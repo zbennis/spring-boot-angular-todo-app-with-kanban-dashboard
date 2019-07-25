@@ -4,7 +4,7 @@ import {TodoHttpClientService} from '../shared/service/todo-http-client-service.
 import {todoId, userIdentifier} from '../shared/constants/Constants';
 import {TodoEntry} from '../shared/entity/TodoEntry';
 import {Observable} from 'rxjs';
-import {AuthenticationService} from '../shared/service/authentication-service.service';
+import {AuthenticationService} from '../shared/service/authentication.service';
 import {TriggerNotificationService} from '../shared/service/trigger-notification.service';
 import {Location} from '@angular/common';
 import {InternNotificationType} from '../shared/entity/InternNotificationType';
@@ -19,7 +19,7 @@ export class TodoAddEditComponent implements OnInit {
   defaultState = 'Choose a state';
   todoEntryStateEntries!: Observable<string[]>;
   private userIdentifier: string;
-  private todoId: number = -1;
+  private todoId = -1;
   private todoEntry!: TodoEntry;
 
   constructor(private route: ActivatedRoute,
@@ -32,7 +32,7 @@ export class TodoAddEditComponent implements OnInit {
 
   ngOnInit() {
     if (!this.todoEntry) {
-      this.todoEntry = new TodoEntry(-1, "", new Date(), null, null, null, 0)
+      this.todoEntry = new TodoEntry(-1, '', new Date(), null, null, null, 0);
     }
     this.userIdentifier = this.route.snapshot.paramMap.get(userIdentifier);
     this.todoId = +this.route.snapshot.paramMap.get(todoId);
@@ -45,9 +45,11 @@ export class TodoAddEditComponent implements OnInit {
   }
 
   addUpdateTodoEntry() {
-    this.isCreateMode() ? console.log("Trying to add a new entry -> " + this.todoEntry) : console.log("Trying to update an existing todo entry -> " + this.todoEntry);
-    //update or add a new todo
-    this.todoHttpService.createUpdateTodoEntry(this.todoEntry, this.isCreateMode(), this.authenticatedService.getDecodedAuthenticatedUserIdentifier())//
+    this.isCreateMode() ? console.log('Trying to add a new entry -> ' + this.todoEntry) : //
+      console.log('Trying to update an existing todo entry -> ' + this.todoEntry);
+    // update or add a new todo
+    this.todoHttpService.createUpdateTodoEntry( this.todoEntry, this.isCreateMode(), //
+     this.authenticatedService.getDecodedAuthenticatedUserIdentifier())//
       .subscribe(() => {
         const message = this.isCreateMode() ? 'Todo entry added successfully' : 'Todo entry updated successfully';
         this.triggerNotification.triggerNotification(InternNotificationType.SUCCESS, message, '', 5000);
@@ -55,15 +57,15 @@ export class TodoAddEditComponent implements OnInit {
       });
 
 
-    console.log("After create/update");
-    //navigate to the todo list
+    console.log('After create/update');
+    // navigate to the todo list
   }
 
   isCreateMode(): boolean {
     if (this.todoEntry) {
-      return this.todoEntry.id == -1 || this.todoEntry.id == 0;
+      return this.todoEntry.id === -1 || this.todoEntry.id === 0;
     }
-    return this.todoId == -1 || this.todoId == 0;
+    return this.todoId === -1 || this.todoId === 0;
   }
 
   private getTodoEntryById() {

@@ -8,7 +8,7 @@ import {TodoEntry} from '../entity/TodoEntry';
 })
 export class TodoHttpClientService {
 
-  private api: string = `/api/`;
+  private api = `/api/`;
 
   constructor(private httpClient: HttpClient) {
   }
@@ -23,17 +23,17 @@ export class TodoHttpClientService {
   }
 
   public authenticateUser(userName: string, password: string) {
-    //this.httpClient.get<Observable<User>>(this.api+``)
+    // this.httpClient.get<Observable<User>>(this.api+``)
   }
 
 
   public getListOfTodoEntriesForUser(userIdentifier: string): Observable<TodoEntry[]> {
-    console.log("todo service => " + userIdentifier);
+    console.log('todo service => ' + userIdentifier);
     return this.httpClient.get<TodoEntry[]>(this.api + `todos/${userIdentifier}`);
   }
 
   public getTodoEntryById(todoId: number): Observable<TodoEntry> {
-    console.log("getting todo of -> " + todoId);
+    console.log('getting todo of -> ' + todoId);
     if (todoId !== -1 && todoId !== 0) {
       return this.httpClient.get<TodoEntry>(this.api + `todos/edit/${todoId}`);
     }
@@ -45,7 +45,7 @@ export class TodoHttpClientService {
   public createUpdateTodoEntry(todoEntry: TodoEntry, method: boolean, userIdentifier: string): Observable<TodoEntry> {
     const url = this.api + `todos/${userIdentifier}/edit/${method ? 1 : 0}`;
     console.log(url);
-    console.log("Creating/updating -> " + todoEntry.description + " of user -> " + userIdentifier);
+    console.log('Creating/updating -> ' + todoEntry.description + ' of user -> ' + userIdentifier);
     return this.httpClient.put<TodoEntry>(url, todoEntry);
   }
 

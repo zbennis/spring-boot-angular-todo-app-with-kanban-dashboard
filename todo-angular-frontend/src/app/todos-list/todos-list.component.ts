@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {TodoEntry} from '../shared/entity/TodoEntry';
 import {TodoHttpClientService} from '../shared/service/todo-http-client-service.service';
-import {AuthenticationService} from '../shared/service/authentication-service.service';
+import {AuthenticationService} from '../shared/service/authentication.service';
 import {TodoEntryState} from '../shared/entity/TodoEntryState';
 import {TriggerNotificationService} from '../shared/service/trigger-notification.service';
 import {InternNotificationType} from '../shared/entity/InternNotificationType';
+import { RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-todos-list',
@@ -13,7 +14,7 @@ import {InternNotificationType} from '../shared/entity/InternNotificationType';
 })
 export class TodosListComponent implements OnInit {
 
-  counter: number = 0;
+  counter = 0;
   date = new Date();
   todoList: TodoEntry[];
 
@@ -40,13 +41,13 @@ export class TodosListComponent implements OnInit {
         return `#2acbeb`;
       }
       case TodoEntryState.TODO.toString(): {
-        return '#e8471e'
+        return '#e8471e';
       }
       case TodoEntryState.IN_PROGRESS.toString(): {
-        return '#edaa1a'
+        return '#edaa1a';
       }
       case TodoEntryState.DONE.toString(): {
-        return '#63cf42'
+        return '#63cf42';
       }
       default: {
         return '#2acbeb';
@@ -60,13 +61,13 @@ export class TodosListComponent implements OnInit {
         return `dotIdea`;
       }
       case TodoEntryState.TODO.toString(): {
-        return 'dotTodo'
+        return 'dotTodo';
       }
       case TodoEntryState.IN_PROGRESS.toString(): {
-        return 'dotProgress'
+        return 'dotProgress';
       }
       case TodoEntryState.DONE.toString(): {
-        return 'dotDone'
+        return 'dotDone';
       }
       default: {
         return 'dotIdea';
@@ -75,7 +76,7 @@ export class TodosListComponent implements OnInit {
   }
 
   private getTodoEntriesForUser(userIdentifier: string) {
-    console.log("todo cmp => " + userIdentifier);
+    console.log('todo cmp => ' + userIdentifier);
     this.todoHttpService.getListOfTodoEntriesForUser(userIdentifier).pipe().subscribe(data => {
       this.todoList = data;
       if (this.todoList.length <= 0) {
@@ -85,30 +86,30 @@ export class TodosListComponent implements OnInit {
   }
 
   private generateRandomNumber(): number {
-    return Math.floor(Math.random() * 10) + 1
+    return Math.floor(Math.random() * 10) + 1;
   }
 
   private buildTodoList(): void { // TODO remove fake data, was generated only to test the frontend
     this.date.setDate(this.date.getDay() + this.generateRandomNumber());
-    this.todoList.push(new TodoEntry(++this.counter, "Learn to code", new Date(), null, this.date, TodoEntryState.IDEA.toString(), 1));
+    this.todoList.push(new TodoEntry(++this.counter, 'Learn to code', new Date(), null, this.date, TodoEntryState.IDEA.toString(), 1));
     this.date = new Date();
     this.date.setDate(this.date.getDay() + this.generateRandomNumber());
-    this.todoList.push(new TodoEntry(++this.counter, "Learn to dance", new Date(), null, this.date, TodoEntryState.IDEA.toString(), 1));
+    this.todoList.push(new TodoEntry(++this.counter, 'Learn to dance', new Date(), null, this.date, TodoEntryState.IDEA.toString(), 1));
     this.date = new Date();
     this.date.setDate(this.date.getDay() + this.generateRandomNumber());
-    this.todoList.push(new TodoEntry(++this.counter, "Learn to cook", new Date(), null, this.date, TodoEntryState.IDEA.toString(), 1));
+    this.todoList.push(new TodoEntry(++this.counter, 'Learn to cook', new Date(), null, this.date, TodoEntryState.IDEA.toString(), 1));
     this.date = new Date();
     this.date.setDate(this.date.getDay() + this.generateRandomNumber());
-    this.todoList.push(new TodoEntry(++this.counter, "Learn to write", new Date(), null, this.date, TodoEntryState.IDEA.toString(), 1));
+    this.todoList.push(new TodoEntry(++this.counter, 'Learn to write', new Date(), null, this.date, TodoEntryState.IDEA.toString(), 1));
     this.date = new Date();
     this.date.setDate(this.date.getDay() + this.generateRandomNumber());
-    this.todoList.push(new TodoEntry(++this.counter, "Learn to sing", new Date(), null, this.date, TodoEntryState.IDEA.toString(), 1));
+    this.todoList.push(new TodoEntry(++this.counter, 'Learn to sing', new Date(), null, this.date, TodoEntryState.IDEA.toString(), 1));
     this.date = new Date();
     this.date.setDate(this.date.getDay() + this.generateRandomNumber());
-    this.todoList.push(new TodoEntry(++this.counter, "Learn to smoke", new Date(), null, this.date, TodoEntryState.IDEA.toString(), 1));
+    this.todoList.push(new TodoEntry(++this.counter, 'Learn to learn', new Date(), null, this.date, TodoEntryState.IDEA.toString(), 1));
     this.date = new Date();
     this.date.setDate(this.date.getDay() + this.generateRandomNumber());
-    this.todoList.push(new TodoEntry(++this.counter, "Learn to smile", new Date(), null, this.date, TodoEntryState.IDEA.toString(), 1));
+    this.todoList.push(new TodoEntry(++this.counter, 'Learn to smile', new Date(), null, this.date, TodoEntryState.IDEA.toString(), 1));
     this.date = new Date();
   }
 

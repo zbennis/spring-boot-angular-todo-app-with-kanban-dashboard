@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router} from '@angular/router';
 import {TriggerNotificationService} from '../shared/service/trigger-notification.service';
 import {InternNotificationType} from '../shared/entity/InternNotificationType';
-import {AuthenticationService} from '../shared/service/authentication-service.service';
+import {AuthenticationService} from '../shared/service/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +12,8 @@ import {AuthenticationService} from '../shared/service/authentication-service.se
 export class LoginComponent implements OnInit {
 
   // TODO implement security
-  username: string = 'test';
-  password: string = 'test';
+  username = 'test';
+  password = 'test';
 
   constructor(private router: Router, private activeRoute: ActivatedRoute,
               private authenticatorService: AuthenticationService,
