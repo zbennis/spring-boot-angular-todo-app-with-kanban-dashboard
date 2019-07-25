@@ -1,5 +1,5 @@
 import {Injectable, OnInit} from '@angular/core';
-import {generate, interval} from 'rxjs';
+import {EMPTY, generate, interval, Observable, of} from 'rxjs';
 import {token, userIdentifierSessionItemName} from '../constants/Constants';
 
 @Injectable({
@@ -50,8 +50,8 @@ export class AuthenticationService {
     return this.isUserLoggedIn() ? sessionStorage.getItem(userIdentifierSessionItemName) : undefined;
   }
 
-  getDecodedAuthenticatedUserIdentifier(): string | undefined {
-    return this.isUserLoggedIn() ? window.atob(sessionStorage.getItem(userIdentifierSessionItemName)) : undefined;
+  getDecodedAuthenticatedUserIdentifier(): Observable<string> {
+    return this.isUserLoggedIn() ? of(window.atob(sessionStorage.getItem(userIdentifierSessionItemName))) : EMPTY;
   }
 
 }

@@ -6,7 +6,7 @@
         <div *ngIf="ideaState" class="m-3">
           <h5><span class="badge badge-info btn-lg btn-block text-white">IDEA</span></h5>
           <div *ngFor="let entry of ideaState">
-            <a routerLink="/todos/{{loginService.getDecodedAuthenticatedUserIdentifier()}}/{{entry.id}}"
+            <a routerLink="/todos/{{userName}}/{{entry.id}}"
                data-toggle="tooltip" data-placement="bottom" title="Click me to edit!">
               <span  class="badge badge-info m-2 text-light">
                 {{entry.description}}
@@ -22,7 +22,7 @@
         <div *ngIf="todoState" class="m-3">
           <h5><span class="badge badge-danger btn-lg btn-block text-white">TODO</span></h5>
           <div *ngFor="let entry of todoState">
-            <a routerLink="/todos/{{loginService.getDecodedAuthenticatedUserIdentifier()}}/{{entry.id}}"
+            <a routerLink="/todos/{{userName}}/{{entry.id}}"
                data-toggle="tooltip" data-placement="bottom" title="Click me to edit!">
               <span class="badge badge-danger m-2 text-light">
                 {{entry.description}}
@@ -38,7 +38,7 @@
         <div *ngIf="inProgressState" class="m-3">
           <h5><span class="badge badge-primary btn-lg btn-block text-white">WORK IN PROGRESS</span></h5>
           <div *ngFor="let entry of inProgressState">
-            <a routerLink="/todos/{{loginService.getDecodedAuthenticatedUserIdentifier()}}/{{entry.id}}"
+            <a routerLink="/todos/{{userName}}/{{entry.id}}"
                data-toggle="tooltip" data-placement="bottom" title="Click me to edit!">
               <span class="badge badge-primary m-2 text-light">
                 {{entry.description}}
@@ -54,7 +54,7 @@
         <div *ngIf="doneState" class="m-3">
           <h5><span class="badge badge-success btn-lg btn-block text-white">DONE</span></h5>
           <div *ngFor="let entry of doneState">
-            <a routerLink="/todos/{{loginService.getDecodedAuthenticatedUserIdentifier()}}/{{entry.id}}"
+            <a routerLink="/todos/{{userName}}/{{entry.id}}"
                data-toggle="tooltip" data-placement="bottom" title="Click me to edit!">
               <span class="badge badge-success m-2 text-light">
                 {{entry.description}}

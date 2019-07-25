@@ -6,6 +6,7 @@ import {TodoEntryState} from '../shared/entity/TodoEntryState';
 import {TriggerNotificationService} from '../shared/service/trigger-notification.service';
 import {InternNotificationType} from '../shared/entity/InternNotificationType';
 import { RouterModule} from '@angular/router';
+import {pluck} from 'rxjs/operators';
 
 @Component({
   selector: 'app-todos-list',
@@ -19,19 +20,27 @@ export class TodosListComponent implements OnInit {
   todoList: TodoEntry[];
 
   constructor(private todoHttpService: TodoHttpClientService,
-              private authenticationService: AuthenticationService,
+              public authenticationService: AuthenticationService,
               private triggerNotification: TriggerNotificationService) {
   }
 
   ngOnInit() {
-    this.getTodoEntriesForUser(this.authenticationService.getDecodedAuthenticatedUserIdentifier());
+    this.getUserNameFromLoginService();
   }
 
-  public deleteTodoEntry(userIdentifier: string, todoId: number) {
-    console.log(`deleting todo entry id: ${todoId} for user -> ${userIdentifier}`);
-    this.todoHttpService.deleteTodoEntry(userIdentifier, todoId).subscribe(() => {
-      this.triggerNotification.triggerNotification(InternNotificationType.INFO, 'Entry deleted successfully', '', 5000);
-      this.getTodoEntriesForUser(userIdentifier);
+  public getUserNameFromLoginService() {
+    this.authenticationService.getDecodedAuthenticatedUserIdentifier().subscribe( inUserName => {
+      this.getTodoEntriesForUser(inUserName);
+    });
+  }
+
+  public deleteTodoEntry(todoId: number) {
+    this.authenticationService.getDecodedAuthenticatedUserIdentifier().subscribe( inUserIdentifier => {
+      console.log(`deleting todo entry id: ${todoId} for user -> ${inUserIdentifier}`);
+      this.todoHttpService.deleteTodoEntry(inUserIdentifier, todoId).subscribe(() => {
+        this.triggerNotification.triggerNotification(InternNotificationType.INFO, 'Entry deleted successfully', '', 5000);
+        this.getTodoEntriesForUser(inUserIdentifier);
+      });
     });
   }
 

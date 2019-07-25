@@ -20,7 +20,7 @@ export class TodoAddEditComponent implements OnInit {
   todoEntryStateEntries!: Observable<string[]>;
   private userIdentifier: string;
   private todoId = -1;
-  private todoEntry!: TodoEntry;
+  todoEntry!: TodoEntry;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -48,13 +48,15 @@ export class TodoAddEditComponent implements OnInit {
     this.isCreateMode() ? console.log('Trying to add a new entry -> ' + this.todoEntry) : //
       console.log('Trying to update an existing todo entry -> ' + this.todoEntry);
     // update or add a new todo
-    this.todoHttpService.createUpdateTodoEntry( this.todoEntry, this.isCreateMode(), //
-     this.authenticatedService.getDecodedAuthenticatedUserIdentifier())//
-      .subscribe(() => {
-        const message = this.isCreateMode() ? 'Todo entry added successfully' : 'Todo entry updated successfully';
-        this.triggerNotification.triggerNotification(InternNotificationType.SUCCESS, message, '', 5000);
-        this.location.back();
-      });
+    this.authenticatedService.getDecodedAuthenticatedUserIdentifier().subscribe( inUserName => {
+      this.todoHttpService.createUpdateTodoEntry( this.todoEntry, this.isCreateMode(), inUserName)
+        .subscribe(() => {
+          const message = this.isCreateMode() ? 'Todo entry added successfully' : 'Todo entry updated successfully';
+          this.triggerNotification.triggerNotification(InternNotificationType.SUCCESS, message, '', 5000);
+          this.location.back();
+        });
+    });
+
 
 
     console.log('After create/update');

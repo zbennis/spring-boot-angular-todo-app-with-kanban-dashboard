@@ -25,7 +25,7 @@
       <td><button class="btn btn-success text-white"
              routerLink="/todos/{{authenticationService.getAuthenticatedUserIdentifier()}}/{{todoEntry.id}}">Update</button>
       </td>
-      <td><button (click)="deleteTodoEntry(authenticationService.getDecodedAuthenticatedUserIdentifier(),todoEntry.id)"
+      <td><button (click)="deleteTodoEntry(todoEntry.id)"
              class="btn btn-danger text-white">Delete</button></td>
     </tr>
     </tbody>

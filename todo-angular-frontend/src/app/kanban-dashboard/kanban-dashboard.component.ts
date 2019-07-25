@@ -3,6 +3,8 @@ import {AuthenticationService} from '../shared/service/authentication.service';
 import {TodoHttpClientService} from '../shared/service/todo-http-client-service.service';
 import {TodoEntryState} from '../shared/entity/TodoEntryState';
 import {TodoEntry} from '../shared/entity/TodoEntry';
+import {TriggerNotificationService} from '../shared/service/trigger-notification.service';
+import {InternNotificationType} from '../shared/entity/InternNotificationType';
 
 @Component({
   selector: 'app-welcome',
@@ -23,17 +25,30 @@ export class KanbanDashboardComponent implements OnInit {
   // -------------------------
 
   constructor(private loginService: AuthenticationService,
-              private todoService: TodoHttpClientService) {
+              private todoService: TodoHttpClientService,
+              private triggerNotification: TriggerNotificationService ) {
   }
 
   ngOnInit() {
-    const userName = this.loginService.getDecodedAuthenticatedUserIdentifier();
-    this.divideList();
+
   }
 
 
+  private getUserNameFromLoginService() {
+    this.loginService.getDecodedAuthenticatedUserIdentifier().subscribe( observableUserName => {
+        this.userName = observableUserName;
+        this.divideList();
+      } ,
+      error1 => {
+        this.triggerNotification.triggerNotification(InternNotificationType.ERROR ,
+          'Oops! something wrong happened, please contact the admin'
+          , '' , 5000 );
+      });
+  }
+
   private divideList() {
-    this.todoService.getListOfTodoEntriesForUser(this.loginService.getDecodedAuthenticatedUserIdentifier())//
+
+    this.todoService.getListOfTodoEntriesForUser(this.userName)//
       .subscribe(data => {
         this.todoEntries = data;
         this.todoEntries.map(entry => {
