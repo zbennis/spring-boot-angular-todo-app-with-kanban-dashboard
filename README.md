@@ -5,10 +5,10 @@
 A todo app made with spring boot(2.1.6), angular(8.1.1) as main technologies as well as other technologies...
 
 ### Kanban-Dashboard
-![](kanban-dashboard.png)
+![](/images/kanban-dashboard.png)
 
 ### Todo List View
-![](gnome-shell-screenshot-DXUL5Zddd.png)
+![](/images/todo-list.png)
 
 # Frontend 
 
