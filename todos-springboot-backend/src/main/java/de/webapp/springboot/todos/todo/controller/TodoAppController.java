@@ -98,10 +98,12 @@ public class TodoAppController {
             double randomEntriesCount = Math.floor(Math.random() * 10 ) + 5;
             double minus = Math.floor(Math.random() * 5 ) + 1;
             double plus = Math.floor(Math.random() * 10 ) + 6;
+
             IntStream.range(0,(int)randomEntriesCount-1).forEach( i -> {
                 Collections.shuffle(todoDescriptions);
                 TodoEntry entry = todoService.addNewEntry(TodoEntry.builder().description(todoDescriptions.get(0)).createdAt(LocalDateTime.now().minusDays((int)minus))//
-                        .dueDate(LocalDateTime.now().plusDays((int)plus)).user(user).updatedAt(null).state(TodoEntryState.IDEA).build());
+                        .dueDate(LocalDateTime.now().plusDays((int)plus)).user(user).updatedAt(null).state(TodoEntryState.IDEA)
+                        .important(new Random().nextBoolean()).build());
             });
         });
     }

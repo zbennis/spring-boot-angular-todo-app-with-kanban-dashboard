@@ -32,8 +32,16 @@
               </div>
             </div>
           </div>
-          <button (click)="addUpdateTodoEntry()" class="btn btn-success m-2" type="submit">Save</button>
-          <button (click)="cancel()" class="btn btn-secondary" type="submit">Cancel</button>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="importantMarker"
+                   (ngModelChange)="todoEntry.important=$event" [ngModelOptions]="{standalone: true}"
+                   [ngModel]="todoEntry?.important">
+            <label class="form-check-label badge badge-danger" for="importantMarker">Mark as important!</label>
+          </div>
+          <div class="from-group justify-content-end">
+            <button (click)="cancel()" class="btn btn-secondary " type="submit">Cancel</button>
+            <button (click)="addUpdateTodoEntry()" class="btn btn-success m-2" type="submit">Save</button>
+          </div>
         </form>
       </div>
     </div>

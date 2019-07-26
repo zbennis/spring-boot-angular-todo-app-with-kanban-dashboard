@@ -30,7 +30,7 @@ import {HttpRequestInterceptorService} from './shared/service/http-request-inter
     FooterComponent,
     LogoutComponent,
     TodoAddEditComponent,
-    SignupPageComponent
+    SignupPageComponent,
   ],
   imports: [
     BrowserModule,

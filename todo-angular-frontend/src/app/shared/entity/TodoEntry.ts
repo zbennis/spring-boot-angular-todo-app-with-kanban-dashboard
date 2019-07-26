@@ -5,9 +5,11 @@ export class TodoEntry {
   updatedAt: Date;
   dueDate: Date;
   state: string;
+  important: boolean;
   userId: number;
 
-  constructor(id: number, description: string, createdAt: Date, updatedAt: Date, dueDate: Date, state: string, userId: number) {
+  constructor(id: number, description: string, createdAt: Date, updatedAt: Date, dueDate: Date,
+              state: string, important: boolean , userId: number) {
     this.id = id;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;

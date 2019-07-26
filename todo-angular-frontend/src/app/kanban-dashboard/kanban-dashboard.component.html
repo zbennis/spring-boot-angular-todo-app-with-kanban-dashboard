@@ -8,7 +8,7 @@
           <div *ngFor="let entry of ideaState">
             <a routerLink="/todos/{{userName}}/{{entry.id}}"
                data-toggle="tooltip" data-placement="bottom" title="Click me to edit!">
-              <span  class="badge badge-info m-2 text-light">
+              <span  class="badge badge-info m-2 text-light" [ngClass]="dynamicCssClasses.markAsImportant(entry?.important)">
                 {{entry.description}}
               </span>
             </a>
@@ -24,7 +24,7 @@
           <div *ngFor="let entry of todoState">
             <a routerLink="/todos/{{userName}}/{{entry.id}}"
                data-toggle="tooltip" data-placement="bottom" title="Click me to edit!">
-              <span class="badge badge-danger m-2 text-light">
+              <span class="badge badge-danger m-2 text-light" [ngClass]="dynamicCssClasses.markAsImportant(entry?.important)">
                 {{entry.description}}
               </span>
             </a>
@@ -40,7 +40,7 @@
           <div *ngFor="let entry of inProgressState">
             <a routerLink="/todos/{{userName}}/{{entry.id}}"
                data-toggle="tooltip" data-placement="bottom" title="Click me to edit!">
-              <span class="badge badge-primary m-2 text-light">
+              <span class="badge badge-primary m-2 text-light" [ngClass]="dynamicCssClasses.markAsImportant(entry?.important)">
                 {{entry.description}}
               </span>
             </a>
@@ -56,7 +56,7 @@
           <div *ngFor="let entry of doneState">
             <a routerLink="/todos/{{userName}}/{{entry.id}}"
                data-toggle="tooltip" data-placement="bottom" title="Click me to edit!">
-              <span class="badge badge-success m-2 text-light">
+              <span class="badge badge-success m-2 text-light" [ngClass]="dynamicCssClasses.markAsImportant(entry?.important)">
                 {{entry.description}}
               </span>
             </a>

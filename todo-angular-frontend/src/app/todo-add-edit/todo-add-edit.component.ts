@@ -32,7 +32,7 @@ export class TodoAddEditComponent implements OnInit {
 
   ngOnInit() {
     if (!this.todoEntry) {
-      this.todoEntry = new TodoEntry(-1, '', new Date(), null, null, null, 0);
+      this.todoEntry = new TodoEntry(-1, '', new Date(), null, null, null, false, 0);
     }
     this.userIdentifier = this.route.snapshot.paramMap.get(userIdentifier);
     this.todoId = +this.route.snapshot.paramMap.get(todoId);

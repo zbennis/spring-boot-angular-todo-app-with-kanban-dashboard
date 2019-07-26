@@ -42,6 +42,9 @@ public class TodoEntry {
     @Enumerated
     private TodoEntryState state;
 
+    @Column(name = "IMPORTANT")
+    private boolean important;
+
     @ManyToOne
     @JoinColumn(name = "user")
     private User user;

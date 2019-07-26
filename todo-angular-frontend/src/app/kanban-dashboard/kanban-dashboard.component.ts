@@ -5,6 +5,7 @@ import {TodoEntryState} from '../shared/entity/TodoEntryState';
 import {TodoEntry} from '../shared/entity/TodoEntry';
 import {TriggerNotificationService} from '../shared/service/trigger-notification.service';
 import {InternNotificationType} from '../shared/entity/InternNotificationType';
+import {DynamicCssClassesService} from '../shared/service/dynamic-css-classes.service';
 
 @Component({
   selector: 'app-welcome',
@@ -26,7 +27,8 @@ export class KanbanDashboardComponent implements OnInit {
 
   constructor(private loginService: AuthenticationService,
               private todoService: TodoHttpClientService,
-              private triggerNotification: TriggerNotificationService ) {
+              private triggerNotification: TriggerNotificationService,
+              public dynamicCssClasses: DynamicCssClassesService ) {
   }
 
   ngOnInit() {

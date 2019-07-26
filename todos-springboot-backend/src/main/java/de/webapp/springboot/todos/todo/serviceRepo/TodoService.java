@@ -33,7 +33,8 @@ public class TodoService {
 
     public TodoEntry updateEntry(TodoEntry entry){
         TodoEntry internEntry = findTodoEntry(entry.getId());
-        internEntry.withDescription(entry.getDescription()).withDueDate(entry.getDueDate()).withUpdatedAt(LocalDateTime.now());
+        internEntry.withDescription(entry.getDescription()).withDueDate(entry.getDueDate()).withUpdatedAt(LocalDateTime.now())
+        .setImportant(entry.isImportant());
         return todoRepository.save(entry);
     }
 

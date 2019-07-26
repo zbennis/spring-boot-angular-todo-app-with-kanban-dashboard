@@ -14,6 +14,10 @@ button {
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
+  animation-name: dotAnimation;
+  animation-duration: 1s;
+  //animation-delay:4s;
+  animation-iteration-count: infinite;
 }
 .dotIdea {
   background-color: #43e8b9;
@@ -26,4 +30,20 @@ button {
 }
 .dotDone {
   background-color: #93f578;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes dotAnimation {
+  0%   {opacity:1;}
+  25%  {opacity:0.60;}
+  50%  {opacity:0.30;}
+  100% {opacity:0.10;}
+}
+
+/* Standard syntax */
+@keyframes dotAnimation {
+  0%   {opacity:1;}
+  25%  {opacity: 0.75;}
+  50%  {opacity:0.45;}
+  100% {opacity:0.25;}
 }
