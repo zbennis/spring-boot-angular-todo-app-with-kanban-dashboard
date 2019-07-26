@@ -13,7 +13,7 @@
     </thead>
     <tbody>
     <tr *ngFor="let todoEntry of todoList">
-      <td [ngClass]="dynamicCssClasses.markAsImportant(todoEntry.important)">{{todoEntry.description}}</td>
+      <td><span [ngClass]="dynamicCssClasses.markAsImportant(todoEntry.important)"><span class="m-5">{{todoEntry.description}}</span></span></td>
       <td>{{todoEntry.createdAt | date:'short' }}</td>
       <td>{{todoEntry.dueDate | date:'short' }}</td>
       <!--[style.background-color]="getBadgeClassByTodoEntryState(todoEntry.state)"-->

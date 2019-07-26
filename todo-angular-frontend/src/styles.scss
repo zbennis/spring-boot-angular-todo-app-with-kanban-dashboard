@@ -5,22 +5,23 @@
 
 .important {
   background-color: #ff3838;
+  border-radius:2px;
   animation-name: importantAnimation;
-  animation-duration: 1s;
+  animation-duration: 2s;
   //animation-delay:4s;
   animation-iteration-count: infinite;
   /* Safari 4.0 - 8.0 */
   @-webkit-keyframes importantAnimation {
     0%   {opacity:1;}
-    100% {opacity:0.50;}
-    //from {background-color: red;}
-    //to {background-color: yellow;}
+    100% {opacity:0.80;}
+    from {background-color: #ff3838;}
+    to {background-color: #f28100;}
   }
   /* Standard syntax */
   @keyframes importantAnimation {
     0%   {opacity:1;}
-    100% {opacity:0.50;}
-    //from {background-color: red;}
-    //to {background-color: yellow;}
+    100% {opacity:0.80;}
+    from {background-color: #ff3838;}
+    to {background-color: #f28100;}
   }
 }
