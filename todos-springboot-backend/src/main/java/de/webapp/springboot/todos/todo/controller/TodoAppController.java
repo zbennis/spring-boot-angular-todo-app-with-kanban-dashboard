@@ -78,7 +78,7 @@ public class TodoAppController {
         todoDescriptions.add("Integrate ci");
         todoDescriptions.add("Implement frontend");
         todoDescriptions.add("Learn Kubernetes");
-        todoDescriptions.add("Learn something! don't be lazy");
+        todoDescriptions.add("Learn something!");
         todoDescriptions.add("Order Pizza");
         todoDescriptions.add("Order Soda");
 

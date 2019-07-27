@@ -111,8 +111,12 @@ export class KanbanDashboardComponent implements OnInit {
 
   private updateEntry(entry: TodoEntry, newState: TodoEntryState) {
     if (entry !== null) {
+      const oldState = entry.state;
       entry.state = newState.toString();
       this.todoService.createUpdateTodoEntry(entry, false, this.userName).subscribe(() => {
+        this.triggerNotification.triggerNotification(InternNotificationType.INFO,
+          `Task ${entry.description} state was changed`,
+          `From ${oldState.toString()} to  ${entry.state.toString()}`,3000);
         console.log('entry updated successfully...');
       });
     }
