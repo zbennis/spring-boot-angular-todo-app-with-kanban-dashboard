@@ -9,7 +9,8 @@
                #ideaList="cdkDropList"
                [cdkDropListData]="ideaStateData"
                [cdkDropListConnectedTo]="[todoList,doneList,inProgressList]"
-               (cdkDropListDropped)="onDrop($event)">
+               (cdkDropListDropped)="onDrop($event)"
+          >
             <h5><span class="badge badge-info btn-lg btn-block text-light">IDEA</span></h5>
             <div *ngIf="ideaStateData?.length>0">
               <mat-card *ngFor="let entry of ideaStateData" cdkDrag>
@@ -19,7 +20,7 @@
                 </mat-card-header>
               </mat-card>
             </div>
-            <div *ngIf="!ideaStateData?.length>0" class="justify-content-center align-content-center">
+            <div *ngIf="!(ideaStateData?.length>0)" class="justify-content-center align-content-center">
               <span class="badge badge-secondary">bucket empty!</span>
             </div>
           </div>
@@ -31,7 +32,8 @@
                #todoList="cdkDropList"
                [cdkDropListData]="todoStateData"
                [cdkDropListConnectedTo]="[ideaList,doneList,inProgressList]"
-               (cdkDropListDropped)="onDrop($event)">
+               (cdkDropListDropped)="onDrop($event)"
+          >
             <h5><span class="badge badge-danger btn-lg btn-block text-light">TODO</span></h5>
             <div *ngIf="todoStateData?.length>0">
               <mat-card *ngFor="let entry of todoStateData" cdkDrag>
@@ -41,7 +43,7 @@
                 </mat-card-header>
               </mat-card>
             </div>
-            <div *ngIf="!todoStateData?.length>0">
+            <div *ngIf="!(todoStateData?.length>0)">
               <span class="badge badge-secondary">bucket empty!</span>
             </div>
           </div>
@@ -53,7 +55,8 @@
                #inProgressList="cdkDropList"
                [cdkDropListData]="inProgressStateData"
                [cdkDropListConnectedTo]="[ideaList,doneList,todoList]"
-               (cdkDropListDropped)="onDrop($event)">
+               (cdkDropListDropped)="onDrop($event)"
+          >
             <h5><span class="badge badge-primary btn-lg btn-block text-light">WORK IN PROGRESS</span></h5>
             <div *ngIf="inProgressStateData?.length>0">
               <mat-card *ngFor="let entry of inProgressStateData" cdkDrag>
@@ -63,7 +66,7 @@
                 </mat-card-header>
               </mat-card>
             </div>
-            <div *ngIf="!inProgressStateData?.length>0">
+            <div *ngIf="!(inProgressStateData?.length>0)">
               <span class="badge badge-secondary">bucket empty!</span>
             </div>
           </div>
@@ -75,7 +78,8 @@
                #doneList="cdkDropList"
                [cdkDropListData]="doneStateData"
                [cdkDropListConnectedTo]="[ideaList,todoList,inProgressList]"
-               (cdkDropListDropped)="onDrop($event)">
+               (cdkDropListDropped)="onDrop($event)"
+          >
             <h5><span class="badge badge-success btn-lg btn-block text-light">DONE</span></h5>
             <div *ngIf="doneStateData?.length>0">
               <div class="entry">
@@ -88,7 +92,7 @@
               </div>
 
             </div>
-            <div *ngIf="!doneStateData.length">
+            <div *ngIf="!(doneStateData?.length>0)">
               <span class="badge badge-success">well done! the bucket is now empty!</span>
             </div>
           </div>

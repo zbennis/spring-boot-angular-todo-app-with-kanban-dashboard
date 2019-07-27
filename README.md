@@ -1,11 +1,8 @@
 # Task web App with a Kanban-Dashboard  [![Build Status](https://travis-ci.com/zbennis/spring-boot-angular-todo-app-with-kanban-dashboard.svg?token=zHqcVD8zUzTqHSqfzYUB&branch=master)](https://travis-ci.com/zbennis/spring-boot-angular-todo-app-with-kanban-dashboard)
 A todo app made with spring boot(2.1.6), angular(8.1.1) as main technologies as well as other technologies...
 
-### Kanban-Dashboard
-![](/images/kanban-dashboard.png)
-
-### Todo List View
-![](/images/todo-list.png)
+### Demo as gif
+![](/gifs/todo-app.gif)
 
 # Frontend 
 
@@ -26,4 +23,4 @@ Default (hardcoded) user is -> (pseudo:test , pw:test )for both backend and fron
 2. Integrate a reasonable security, since we are using a basic hardcoded version for now
 3. Add Unit and Integration tests
 5. Dockerize
-6. Add the possibility to drag&drop the items between the different branches in the kanbabn dashboard.
+
