@@ -19,8 +19,8 @@ cd to backend directory and run one of the following commands -> ./gradlew run o
 Default (hardcoded) user is -> (pseudo:test , pw:test )for both backend and frontend.
 
 ### TODOS 
-1. Allow users to signUp
+1. Allow users to signUp (maybe with activation mail)
 2. Integrate a reasonable security, since we are using a basic hardcoded version for now
 3. Add Unit and Integration tests
-5. Dockerize
+4. Dockerize
 
