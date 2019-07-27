@@ -18,6 +18,8 @@ import {SignupPageComponent} from './signup-page/signup-page.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {RouterModule} from '@angular/router';
 import {HttpRequestInterceptorService} from './shared/service/http-request-interceptor.service';
+import {MatButtonToggleModule, MatCard, MatCardModule} from '@angular/material';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,10 @@ import {HttpRequestInterceptorService} from './shared/service/http-request-inter
     SimpleNotificationsModule.forRoot(),
     HttpClientModule,
     NgbModule,
-    RouterModule
+    RouterModule,
+    MatCardModule,
+    DragDropModule,
+    MatButtonToggleModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptorService , multi: true }

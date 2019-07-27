@@ -1,27 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://unpkg.com/bootstrap@4.1.1/dist/css/bootstrap.min.css");
 @import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
-
+//@import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
 
 .important {
-  background-color: #ff3838;
+  background-color: #d9c921;
   border-radius:2px;
+  padding: 5px;
   animation-name: importantAnimation;
-  animation-duration: 2s;
+  animation-duration: 3s;
   //animation-delay:4s;
   animation-iteration-count: infinite;
   /* Safari 4.0 - 8.0 */
   @-webkit-keyframes importantAnimation {
     0%   {opacity:1;}
     100% {opacity:0.80;}
-    from {background-color: #ff3838;}
+    from {background-color: #d9c921;}
     to {background-color: #f28100;}
   }
   /* Standard syntax */
   @keyframes importantAnimation {
     0%   {opacity:1;}
     100% {opacity:0.80;}
-    from {background-color: #ff3838;}
+    from {background-color: #d9c921;}
     to {background-color: #f28100;}
   }
 }
