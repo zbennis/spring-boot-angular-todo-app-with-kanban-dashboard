@@ -97,39 +97,4 @@ export class TodosListComponent implements OnInit {
     });
   }
 
-  private generateRandomNumber(): number {
-    return Math.floor(Math.random() * 10) + 1;
-  }
-
-  private buildTodoList(): void { // TODO remove fake data, was generated only to test the frontend
-    this.date.setDate(this.date.getDay() + this.generateRandomNumber());
-    this.todoList.push(new TodoEntry(++this.counter, 'Learn to code', new Date(), null, this.date,
-      TodoEntryState.IDEA.toString(), false, 1));
-    this.date = new Date();
-    this.date.setDate(this.date.getDay() + this.generateRandomNumber());
-    this.todoList.push(new TodoEntry(++this.counter, 'Learn to dance', new Date(), null, this.date,
-      TodoEntryState.IDEA.toString(), true, 1));
-    this.date = new Date();
-    this.date.setDate(this.date.getDay() + this.generateRandomNumber());
-    this.todoList.push(new TodoEntry(++this.counter, 'Learn to cook', new Date(), null, this.date,
-      TodoEntryState.IDEA.toString(), false, 1));
-    this.date = new Date();
-    this.date.setDate(this.date.getDay() + this.generateRandomNumber());
-    this.todoList.push(new TodoEntry(++this.counter, 'Learn to write', new Date(), null, this.date,
-      TodoEntryState.IDEA.toString(), false, 1));
-    this.date = new Date();
-    this.date.setDate(this.date.getDay() + this.generateRandomNumber());
-    this.todoList.push(new TodoEntry(++this.counter, 'Learn to sing', new Date(), null, this.date,
-      TodoEntryState.IDEA.toString(), true, 1));
-    this.date = new Date();
-    this.date.setDate(this.date.getDay() + this.generateRandomNumber());
-    this.todoList.push(new TodoEntry(++this.counter, 'Learn to learn', new Date(), null, this.date,
-      TodoEntryState.IDEA.toString(), true, 1));
-    this.date = new Date();
-    this.date.setDate(this.date.getDay() + this.generateRandomNumber());
-    this.todoList.push(new TodoEntry(++this.counter, 'Learn to smile', new Date(), null, this.date,
-      TodoEntryState.IDEA.toString(), false, 1));
-    this.date = new Date();
-  }
-
 }
