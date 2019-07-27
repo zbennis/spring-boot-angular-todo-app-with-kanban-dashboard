@@ -6,6 +6,9 @@ import {TodoEntry} from '../shared/entity/TodoEntry';
 import {TriggerNotificationService} from '../shared/service/trigger-notification.service';
 import {InternNotificationType} from '../shared/entity/InternNotificationType';
 import {DynamicCssClassesService} from '../shared/service/dynamic-css-classes.service';
+import {MatCardModule} from '@angular/material';
+import {CdkDragDrop} from '@angular/cdk/typings/esm5/drag-drop';
+import {CdkDragEnter, CdkDragExit, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-welcome',
@@ -17,10 +20,10 @@ export class KanbanDashboardComponent implements OnInit {
   userName: string;
 
   // -------------------------
-  ideaState: TodoEntry[] = [];
-  todoState: TodoEntry[] = [];
-  inProgressState: TodoEntry[] = [];
-  doneState: TodoEntry[] = [];
+  ideaStateData: TodoEntry[] = [];
+  todoStateData: TodoEntry[] = [];
+  inProgressStateData: TodoEntry[] = [];
+  doneStateData: TodoEntry[] = [];
   todoEntries: TodoEntry[];
 
   // -------------------------
@@ -54,20 +57,32 @@ export class KanbanDashboardComponent implements OnInit {
       .subscribe(data => {
         this.todoEntries = data;
         this.todoEntries.map(entry => {
-          if (entry.state === TodoEntryState.TODO.toString()) {
-            this.todoState.push(entry);
-          }
-          if (entry.state === TodoEntryState.DONE.toString()) {
-            this.doneState.push(entry);
-          }
           if (entry.state === TodoEntryState.IDEA.toString()) {
-            this.ideaState.push(entry);
+            this.ideaStateData.push(entry);
+          }
+          if (entry.state === TodoEntryState.TODO.toString()) {
+            this.todoStateData.push(entry);
           }
           if (entry.state === TodoEntryState.IN_PROGRESS.toString()) {
-            this.inProgressState.push(entry);
+            this.inProgressStateData.push(entry);
+          }
+          if (entry.state === TodoEntryState.DONE.toString()) {
+            this.doneStateData.push(entry);
           }
         });
       });
+  }
+
+  onDrop(event: CdkDragDrop<TodoEntry[]> ) {
+    if (event.previousContainer === event.container) {
+      // In this case the order does not matter
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      console.log('Dragged item:');
+      console.log('from -> ' + event.previousContainer.id);
+      console.log('To ->' + event.container.id);
+      transferArrayItem( event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
+    }
   }
 
 }

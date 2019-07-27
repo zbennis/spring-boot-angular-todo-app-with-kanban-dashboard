@@ -1,73 +1,100 @@
-<div class="dashboard">
-  <div class="container">
-    <h3><span class="badge badge-warning btn-lg btn-block text-white">Kanban Board</span></h3>
-    <div class="row">
-      <div class="col m-2 container-fluid" style="background-color: #43e8b9;border-radius: 5px;">
-        <div *ngIf="ideaState" class="m-3">
-          <h5><span class="badge badge-info btn-lg btn-block text-white">IDEA</span></h5>
-          <div *ngFor="let entry of ideaState">
-            <a routerLink="/todos/{{userName}}/{{entry.id}}"
-               data-toggle="tooltip" data-placement="bottom" title="Click me to edit!">
-              <span  class="badge badge-info m-2 text-light" [ngClass]="dynamicCssClasses.markAsImportant(entry?.important)">
-                {{entry.description}}
-              </span>
-            </a>
+<div class="container">
+
+    <div class="container m-2">
+      <h1 class="page-header text-lg-center kanban-board text-light">Kanban Dashboard</h1>
+      <div class="list-container">
+        <div class="column-container">
+          <div class="idea-container list p-2"
+               cdkDropList
+               #ideaList="cdkDropList"
+               [cdkDropListData]="ideaStateData"
+               [cdkDropListConnectedTo]="[todoList,doneList,inProgressList]"
+               (cdkDropListDropped)="onDrop($event)">
+            <h5><span class="badge badge-info btn-lg btn-block text-light">IDEA</span></h5>
+            <div *ngIf="ideaStateData?.length>0">
+              <mat-card *ngFor="let entry of ideaStateData" cdkDrag>
+                <mat-card-header [ngClass]="dynamicCssClasses.markAsImportant(entry.important)">
+                  <mat-card-title class="badge badge-info text-light">{{entry.description}}</mat-card-title>
+                  <!-- <mat-card-subtitle class="badge badge-info m-2 text-light">{{entry.important ? 'Important' : 'Normal'}}</mat-card-subtitle>-->
+                </mat-card-header>
+              </mat-card>
+            </div>
+            <div *ngIf="!ideaStateData?.length>0" class="justify-content-center align-content-center">
+              <span class="badge badge-secondary">bucket empty!</span>
+            </div>
           </div>
         </div>
-        <div *ngIf="!ideaState.length">
-          <span class="badge badge-secondary">bucket empty!</span>
-        </div>
-      </div>
-      <div class="col m-2 container-fluid" style="background-color: #ff7f5c;border-radius: 5px;">
-        <div *ngIf="todoState" class="m-3">
-          <h5><span class="badge badge-danger btn-lg btn-block text-white">TODO</span></h5>
-          <div *ngFor="let entry of todoState">
-            <a routerLink="/todos/{{userName}}/{{entry.id}}"
-               data-toggle="tooltip" data-placement="bottom" title="Click me to edit!">
-              <span class="badge badge-danger m-2 text-light" [ngClass]="dynamicCssClasses.markAsImportant(entry?.important)">
-                {{entry.description}}
-              </span>
-            </a>
+
+        <div class="column-container">
+          <div class="todo-container list p-2"
+               cdkDropList
+               #todoList="cdkDropList"
+               [cdkDropListData]="todoStateData"
+               [cdkDropListConnectedTo]="[ideaList,doneList,inProgressList]"
+               (cdkDropListDropped)="onDrop($event)">
+            <h5><span class="badge badge-danger btn-lg btn-block text-light">TODO</span></h5>
+            <div *ngIf="todoStateData?.length>0">
+              <mat-card *ngFor="let entry of todoStateData" cdkDrag>
+                <mat-card-header [ngClass]="dynamicCssClasses.markAsImportant(entry.important)">
+                  <mat-card-title class="badge badge-danger text-light">{{entry.description}}</mat-card-title>
+                  <!-- <mat-card-subtitle class="badge badge-info m-2 text-light">{{entry.important ? 'Important' : 'Normal'}}</mat-card-subtitle>-->
+                </mat-card-header>
+              </mat-card>
+            </div>
+            <div *ngIf="!todoStateData?.length>0">
+              <span class="badge badge-secondary">bucket empty!</span>
+            </div>
           </div>
         </div>
-        <div *ngIf="!todoState.length">
-          <span class="badge badge-secondary">bucket empty!</span>
-        </div>
-      </div>
-      <div class="col m-2 container-fluid" style="background-color: #5fa8f5;border-radius:5px;">
-        <div *ngIf="inProgressState" class="m-3">
-          <h5><span class="badge badge-primary btn-lg btn-block text-white">WORK IN PROGRESS</span></h5>
-          <div *ngFor="let entry of inProgressState">
-            <a routerLink="/todos/{{userName}}/{{entry.id}}"
-               data-toggle="tooltip" data-placement="bottom" title="Click me to edit!">
-              <span class="badge badge-primary m-2 text-light" [ngClass]="dynamicCssClasses.markAsImportant(entry?.important)">
-                {{entry.description}}
-              </span>
-            </a>
+
+        <div class=" column-container">
+          <div class="inProgress-container list p-2"
+               cdkDropList
+               #inProgressList="cdkDropList"
+               [cdkDropListData]="inProgressStateData"
+               [cdkDropListConnectedTo]="[ideaList,doneList,todoList]"
+               (cdkDropListDropped)="onDrop($event)">
+            <h5><span class="badge badge-primary btn-lg btn-block text-light">WORK IN PROGRESS</span></h5>
+            <div *ngIf="inProgressStateData?.length>0">
+              <mat-card *ngFor="let entry of inProgressStateData" cdkDrag>
+                <mat-card-header [ngClass]="dynamicCssClasses.markAsImportant(entry.important)">
+                  <mat-card-title class="badge badge-primary text-light">{{entry.description}}</mat-card-title>
+                  <!-- <mat-card-subtitle class="badge badge-info m-2 text-light">{{entry.important ? 'Important' : 'Normal'}}</mat-card-subtitle>-->
+                </mat-card-header>
+              </mat-card>
+            </div>
+            <div *ngIf="!inProgressStateData?.length>0">
+              <span class="badge badge-secondary">bucket empty!</span>
+            </div>
           </div>
         </div>
-        <div *ngIf="!inProgressState.length">
-          <span class="badge badge-secondary">bucket empty!</span>
-        </div>
-      </div>
-      <div class="col m-2 container-fluid" style="background-color: #93f578;border-radius:5px;">
-        <div *ngIf="doneState" class="m-3">
-          <h5><span class="badge badge-success btn-lg btn-block text-white">DONE</span></h5>
-          <div *ngFor="let entry of doneState">
-            <a routerLink="/todos/{{userName}}/{{entry.id}}"
-               data-toggle="tooltip" data-placement="bottom" title="Click me to edit!">
-              <span class="badge badge-success m-2 text-light" [ngClass]="dynamicCssClasses.markAsImportant(entry?.important)">
-                {{entry.description}}
-              </span>
-            </a>
+
+        <div class="column-container">
+          <div class="done-container list p-2"
+               cdkDropList
+               #doneList="cdkDropList"
+               [cdkDropListData]="doneStateData"
+               [cdkDropListConnectedTo]="[ideaList,todoList,inProgressList]"
+               (cdkDropListDropped)="onDrop($event)">
+            <h5><span class="badge badge-success btn-lg btn-block text-light">DONE</span></h5>
+            <div *ngIf="doneStateData?.length>0">
+              <div class="entry">
+                <mat-card *ngFor="let entry of doneStateData" cdkDrag>
+                  <mat-card-header [ngClass]="dynamicCssClasses.markAsImportant(entry.important)">
+                    <mat-card-title class="badge badge-success text-light">{{entry.description}}</mat-card-title>
+                    <!-- <mat-card-subtitle class="badge badge-info m-2 text-light">{{entry.important ? 'Important' : 'Normal'}}</mat-card-subtitle>-->
+                  </mat-card-header>
+                </mat-card>
+              </div>
+
+            </div>
+            <div *ngIf="!doneStateData.length">
+              <span class="badge badge-success">well done! the bucket is now empty!</span>
+            </div>
           </div>
         </div>
-        <div *ngIf="!doneState.length">
-          <span class="badge badge-success">well done! the bucket is now empty!</span>
-        </div>
-      </div>
     </div>
+
   </div>
 </div>
 
-<!-- TODO implement a drag and drop functionality -->

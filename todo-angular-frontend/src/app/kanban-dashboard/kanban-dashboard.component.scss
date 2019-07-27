@@ -1,0 +1,107 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  //justify-content: center;
+  //align-items: center;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.list-container {
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+
+.idea-container{
+  background-color: #43e8b9;border-radius: 5px;
+}
+
+.todo-container{
+  background-color: #ff7f5c;border-radius: 5px;
+}
+
+.inProgress-container{
+  background-color: #5fa8f5;border-radius:5px;
+}
+
+.done-container{
+  background-color: #93f578;border-radius:5px;
+}
+
+.column-container {
+  min-width: 250px;
+  max-width: 100%;
+  margin: 0 10px 10px 0;
+  display: inline-block;
+  vertical-align: top;
+  background-color: RGBA(255, 255, 255, 0.05);
+}
+
+
+mat-card {
+  margin: 1em;
+  cursor: pointer;
+}
+
+mat-card-footer{
+  justify-content: flex-end;
+  align-content: flex-end;
+}
+
+.list {
+  border-radius: 5px;
+}
+
+.list-item {
+  color: rgba(0, 0, 0, 0.87);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  cursor: move;
+  background: white;
+  font-size: 14px;
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+  0 8px 10px 1px rgba(0, 0, 0, 0.14),
+  0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box:last-child {
+  border: none;
+}
+
+.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+a {
+  text-decoration: none;
+  color: dodgerblue;
+}
+
+.kanban-board{
+  background-color: #f5e82a;
+  border-radius: 5px;
+  text-decoration-color: aliceblue;
+}
+
+
