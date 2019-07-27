@@ -113,7 +113,6 @@ export class KanbanDashboardComponent implements OnInit {
     if (entry !== null) {
       entry.state = newState.toString();
       this.todoService.createUpdateTodoEntry(entry, false, this.userName).subscribe(() => {
-        //this.getUserNameFromLoginService();
         console.log('entry updated successfully...');
       });
     }

@@ -95,14 +95,16 @@ public class TodoAppController {
         users.add(userService.addNewUser(User.builder().firstName("Anna").lastName("Anna").email("anna.anna@email.com").password("macap").pseudo("Marvin.Captain").build()));
 
         users.forEach(user -> {
-            double randomEntriesCount = Math.floor(Math.random() * 10 ) + 5;
+            double randomEntriesCount = Math.floor(Math.random() * 30 ) + 10;
             double minus = Math.floor(Math.random() * 5 ) + 1;
             double plus = Math.floor(Math.random() * 10 ) + 6;
 
             IntStream.range(0,(int)randomEntriesCount-1).forEach( i -> {
                 Collections.shuffle(todoDescriptions);
+                List<TodoEntryState> todoStatuses = Stream.of(TodoEntryState.values()).collect(Collectors.toList());
+                Collections.shuffle(todoStatuses);
                 TodoEntry entry = todoService.addNewEntry(TodoEntry.builder().description(todoDescriptions.get(0)).createdAt(LocalDateTime.now().minusDays((int)minus))//
-                        .dueDate(LocalDateTime.now().plusDays((int)plus)).user(user).updatedAt(null).state(TodoEntryState.IDEA)
+                        .dueDate(LocalDateTime.now().plusDays((int)plus)).user(user).updatedAt(null).state(todoStatuses.get(0))
                         .important(new Random().nextBoolean()).build());
             });
         });
