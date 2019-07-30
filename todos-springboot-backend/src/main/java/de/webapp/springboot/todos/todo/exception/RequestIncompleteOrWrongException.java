@@ -5,7 +5,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(code = HttpStatus.BAD_REQUEST)
 public class RequestIncompleteOrWrongException extends RuntimeException {
-    public RequestIncompleteOrWrongException(){
+    
+    private static final long serialVersionUID = 1L;
+
+    public RequestIncompleteOrWrongException() {
         super("Request is wrong or incomplete -> error happened while adding/editing a new todoEntry");
     }
 }

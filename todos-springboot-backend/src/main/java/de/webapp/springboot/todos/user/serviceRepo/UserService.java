@@ -1,13 +1,10 @@
 package de.webapp.springboot.todos.user.serviceRepo;
 
-import de.webapp.springboot.todos.user.domain.Role;
 import de.webapp.springboot.todos.user.domain.User;
-import de.webapp.springboot.todos.user.exception.UserAlreadyExistsException;
 import de.webapp.springboot.todos.user.exception.UserEmailAlreadyUserException;
 import de.webapp.springboot.todos.user.exception.UserNotFoundException;
 import de.webapp.springboot.todos.user.exception.UserPseudoAlreadyUsedException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

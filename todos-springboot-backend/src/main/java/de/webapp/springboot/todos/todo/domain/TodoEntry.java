@@ -1,8 +1,5 @@
 package de.webapp.springboot.todos.todo.domain;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import de.webapp.springboot.todos.user.domain.User;
 import lombok.*;
 import lombok.experimental.Wither;

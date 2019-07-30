@@ -5,4 +5,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(code = HttpStatus.CONFLICT, reason = "User pseudo already used")
 public class UserPseudoAlreadyUsedException extends RuntimeException {
+
+    private static final long serialVersionUID = 1L;
 }

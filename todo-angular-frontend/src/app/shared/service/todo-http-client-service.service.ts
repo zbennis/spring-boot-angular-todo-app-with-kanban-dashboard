@@ -8,7 +8,7 @@ import {TodoEntry} from '../entity/TodoEntry';
 })
 export class TodoHttpClientService {
 
-  private api = `/api/`;
+  private api = `http://localhost:2604/api/`;
 
   constructor(private httpClient: HttpClient) {
   }

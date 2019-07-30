@@ -1,19 +1,11 @@
 package de.webapp.springboot.todos.user.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import de.webapp.springboot.todos.todo.domain.TodoEntry;
 import lombok.*;
 import lombok.experimental.Wither;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.util.StringUtils;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+
 
 @Table(name = "User")
 @Data

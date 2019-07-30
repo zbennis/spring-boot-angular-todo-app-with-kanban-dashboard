@@ -18,8 +18,10 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/todos")
+@RequestMapping("/api/todos")
 @RequiredArgsConstructor
 @Slf4j
 public class TodoAppController {
@@ -103,7 +105,7 @@ public class TodoAppController {
                 Collections.shuffle(todoDescriptions);
                 List<TodoEntryState> todoStatuses = Stream.of(TodoEntryState.values()).collect(Collectors.toList());
                 Collections.shuffle(todoStatuses);
-                TodoEntry entry = todoService.addNewEntry(TodoEntry.builder().description(todoDescriptions.get(0)).createdAt(LocalDateTime.now().minusDays((int)minus))//
+                todoService.addNewEntry(TodoEntry.builder().description(todoDescriptions.get(0)).createdAt(LocalDateTime.now().minusDays((int)minus))//
                         .dueDate(LocalDateTime.now().plusDays((int)plus)).user(user).updatedAt(null).state(todoStatuses.get(0))
                         .important(new Random().nextBoolean()).build());
             });

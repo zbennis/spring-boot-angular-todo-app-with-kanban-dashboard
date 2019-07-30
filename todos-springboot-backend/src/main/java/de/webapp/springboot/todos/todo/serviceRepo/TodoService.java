@@ -4,7 +4,6 @@ import de.webapp.springboot.todos.todo.domain.TodoEntry;
 import de.webapp.springboot.todos.todo.exception.TodoEntryAlreadyExistsException;
 import de.webapp.springboot.todos.todo.exception.TodoEntryNotFoundException;
 import de.webapp.springboot.todos.user.domain.User;
-import de.webapp.springboot.todos.user.serviceRepo.UserRepository;
 import de.webapp.springboot.todos.user.serviceRepo.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
