@@ -22,5 +22,5 @@ Default (hardcoded) user is -> (pseudo:test , pw:test )for both backend and fron
 1. Allow users to signUp (maybe with activation mail)
 2. Integrate a reasonable security, since we are using a basic hardcoded version for now
 3. Add Unit and Integration tests
-4. Dockerize
+
 
