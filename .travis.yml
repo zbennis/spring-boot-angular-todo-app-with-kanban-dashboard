@@ -8,9 +8,9 @@ branches:
 
 addons:
   sonarcloud:
-    organization: "task-app-github" # the key of the org you chose at step #3
+    organization: "task-app-github"
     token:
-      secure: "TASK_APP_SONAR_TOKEN" # encrypted value of your token
+      secure: $TASK_APP_SONAR_TOKEN
   apt:
     sources:
       - google-chrome
