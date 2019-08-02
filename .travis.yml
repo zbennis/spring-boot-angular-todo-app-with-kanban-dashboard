@@ -16,6 +16,14 @@ addons:
 matrix:
   include:
 
+    #SonarCloud
+    #Checks the quality of source code
+    #Detect bugs, vulnerabilities and code smells
+    - language: java
+      jdk: openjdk8
+      script:
+        - sonar-scanner
+
     #BACKEND
     - language: java
       jdk: openjdk8
@@ -49,4 +57,4 @@ cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
-    #- '$HOME/.sonar/cache'
+    - '$HOME/.sonar/cache'

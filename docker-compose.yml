@@ -1,5 +1,5 @@
 version: '3'
- 
+
 services:
 
   backend:
@@ -12,11 +12,11 @@ services:
     command: ["java", "-jar", "application.jar"]
     networks:
       - todos-springboot-backend-network
-       
+
   frontend:
     image: nginx:alpine
     container_name: todo-angular-frontend
-    ports: 
+    ports:
       - 4200:80
     depends_on:
       - backend
@@ -25,7 +25,7 @@ services:
       - ./todo-angular-frontend/dist/todo-angular-frontend/:/usr/share/nginx/html
     networks:
       - todo-angular-frontend-network
-   
+
 networks:
   todos-springboot-backend-network:
   todo-angular-frontend-network:
