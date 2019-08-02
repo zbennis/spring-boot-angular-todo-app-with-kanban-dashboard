@@ -7,6 +7,10 @@ branches:
     - dragAndDrop
 
 addons:
+  sonarcloud:
+    organization: "task-app-github" # the key of the org you chose at step #3
+    token:
+      secure: "TASK_APP_SONAR_TOKEN" # encrypted value of your token
   apt:
     sources:
       - google-chrome
