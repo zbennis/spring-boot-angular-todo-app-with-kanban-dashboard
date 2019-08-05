@@ -6,6 +6,10 @@ branches:
     - master
 
 addons:
+  sonarcloud:
+    organization: "task-app-github"
+    token:
+      secure: $TASK_APP_SONAR_TOKEN
   apt:
     sources:
       - google-chrome
@@ -25,7 +29,7 @@ matrix:
         - ./gradlew jacocoTestCoverageVerification
         - ./gradlew jacocoTestReport
         - ./gradlew build
-         #SonarCloud -> 1-Checks the quality of source code  2- Detect bugs, vulnerabilities and code smells
+        - sonar-scanner #SonarCloud -> 1-Checks the quality of source code  2- Detect bugs, vulnerabilities and code smells
       after_success:
       - ./graldew javadoc
       before_script:
@@ -49,4 +53,4 @@ cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
-    #- '$HOME/.sonar/cache'
+    - '$HOME/.sonar/cache'
