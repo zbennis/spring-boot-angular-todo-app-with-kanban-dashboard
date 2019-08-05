@@ -150,7 +150,7 @@ checkWhichCommandToRun() {
           exit
           ;;
        *)
-          echo 'Wrong command you should give a number between 0 and 5'
+          echo 'Wrong command you should give a number between 0 and 6'
           exit
           ;;
     esac
