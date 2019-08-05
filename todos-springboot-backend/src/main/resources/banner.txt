@@ -1,11 +1,11 @@
-${AnsiColor.BRIGHT_BLUE} _________   ______       ______       ______      ${AnsiColor.BLUE} ________       ______     ______
-${AnsiColor.BRIGHT_BLUE}/________/\ /_____/\     /_____/\     /_____/\     ${AnsiColor.BLUE}/_______/\     /_____/\   /_____/\
-${AnsiColor.BRIGHT_BLUE}\__.::.__\/ \:::_ \ \    \:::_ \ \    \:::_ \ \    ${AnsiColor.BLUE}\::: _  \ \    \:::_ \ \  \:::_ \ \
-${AnsiColor.BRIGHT_BLUE}   \::\ \    \:\ \ \ \    \:\ \ \ \    \:\ \ \ \   ${AnsiColor.BLUE} \::(_)  \ \    \:(_) \ \  \:(_) \ \
-${AnsiColor.BRIGHT_BLUE}    \::\ \    \:\ \ \ \    \:\ \ \ \    \:\ \ \ \  ${AnsiColor.BLUE}  \:: __  \ \    \: ___\/   \: ___\/
-${AnsiColor.BRIGHT_BLUE}     \::\ \    \:\_\ \ \    \:\/.:| |    \:\_\ \ \ ${AnsiColor.BLUE}   \:.\ \  \ \    \ \ \      \ \ \
-${AnsiColor.BRIGHT_BLUE}      \__\/     \_____\/     \____/_/     \_____\/ ${AnsiColor.BLUE}    \__\/\__\/     \_\/       \_\/
+${AnsiColor.GREEN} _________   ______       ______       ______      ${AnsiColor.BLUE} ________       ______     ______
+${AnsiColor.GREEN}/________/\ /_____/\     /_____/\     /_____/\     ${AnsiColor.BLUE}/_______/\     /_____/\   /_____/\
+${AnsiColor.GREEN}\__.::.__\/ \:::_ \ \    \:::_ \ \    \:::_ \ \    ${AnsiColor.BLUE}\::: _  \ \    \:::_ \ \  \:::_ \ \
+${AnsiColor.GREEN}   \::\ \    \:\ \ \ \    \:\ \ \ \    \:\ \ \ \   ${AnsiColor.BLUE} \::(_)  \ \    \:(_) \ \  \:(_) \ \
+${AnsiColor.GREEN}    \::\ \    \:\ \ \ \    \:\ \ \ \    \:\ \ \ \  ${AnsiColor.BLUE}  \:: __  \ \    \: ___\/   \: ___\/
+${AnsiColor.GREEN}     \::\ \    \:\_\ \ \    \:\/.:| |    \:\_\ \ \ ${AnsiColor.BLUE}   \:.\ \  \ \    \ \ \      \ \ \
+${AnsiColor.GREEN}      \__\/     \_____\/     \____/_/     \_____\/ ${AnsiColor.BLUE}    \__\/\__\/     \_\/       \_\/
 
                     ${AnsiColor.BRIGHT_YELLOW}Running Spring Boot :: ${AnsiColor.BRIGHT_RED}${spring-boot.version} ::
 
-                    ${AnsiColor.GREEN}Author : ${AnsiColor.BRIGHT_GREEN}Zakaria Bennis ${AnsiColor.GREEN}@CodingForFun
+                    ${AnsiColor.GREEN}Author : ${AnsiColor.BLUE}Zakaria Bennis ${AnsiColor.BRIGHT_CYAN}@CodingForFun
