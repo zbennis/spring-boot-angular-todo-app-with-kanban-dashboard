@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.1.6.RELEASE'
     id 'java'
     id 'jacoco'
+    id "org.sonarqube" version "2.7"
 }
 
 apply plugin: 'io.spring.dependency-management'
@@ -42,4 +43,11 @@ dependencies {
 task run(name:'bootRun' , description:'runs the spring boot app',group:'todo app'){
     dependsOn clean
     dependsOn bootRun
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "task-kanban-dashboard-app"
+        property "sonar.sourceEncoding", "UTF-8"
+    }
 }

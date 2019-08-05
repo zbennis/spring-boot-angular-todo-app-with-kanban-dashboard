@@ -25,13 +25,12 @@ matrix:
       script:
         - ./gradlew clean
         - ./gradlew check
-        - ./gradlew test
         - ./gradlew jacocoTestCoverageVerification
         - ./gradlew jacocoTestReport
         - ./gradlew build
-        - sonar-scanner #SonarCloud -> 1-Checks the quality of source code  2- Detect bugs, vulnerabilities and code smells
       after_success:
       - ./graldew javadoc
+      - ./gradlew sonarqube
       before_script:
         - cd ./todos-springboot-backend/
 
