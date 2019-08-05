@@ -11,9 +11,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -65,7 +67,6 @@ public class TodoAppController {
     }
 
     //----------------------------- CREATE Fake Test Data to render something at the beginning
-    @PostConstruct
     public void createTestData(){
 
         List<String> todoDescriptions = new ArrayList<>();
@@ -97,7 +98,7 @@ public class TodoAppController {
         users.add(userService.addNewUser(User.builder().firstName("Anna").lastName("Anna").email("anna.anna@email.com").password("macap").pseudo("Marvin.Captain").build()));
 
         users.forEach(user -> {
-            double randomEntriesCount = Math.floor(Math.random() * 30 ) + 10;
+            double randomEntriesCount = Math.floor(Math.random() * 5 ) + 1;
             double minus = Math.floor(Math.random() * 5 ) + 1;
             double plus = Math.floor(Math.random() * 10 ) + 6;
 

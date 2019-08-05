@@ -43,7 +43,7 @@ public class TodoEntry {
     private boolean important;
 
     @ManyToOne
-    @JoinColumn(name = "user")
+    @JoinColumn(name = "task_creator")
     private User user;
 
 }

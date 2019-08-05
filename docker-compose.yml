@@ -1,30 +1,48 @@
 version: '3'
 
 services:
-
-  backend:
+  db_postgres:
+    image: postgres
+    container_name: database
+    environment:
+      MYSQL_DATABASE: taskdb
+      MYSQL_USER: taskapp_db_admin
+      MYSQL_PASSWORD: taskuser123456
+    ports:
+      - 5432:5432
+    volumes:
+      - taskdb_data:/var/lib/postgres/data
+    networks:
+      - todos-springboot-backend-network
+  backend_springboot:
     image: openjdk:10-jre-slim
     container_name: todos-springboot-backend
     ports:
       - 2604:2604
+    depends_on:
+      - db_postgres
     volumes:
       - ./todos-springboot-backend/build/libs/todos-springboot-backend-0.0.1-SNAPSHOT.jar:/application.jar
     command: ["java", "-jar", "application.jar"]
     networks:
       - todos-springboot-backend-network
 
-  frontend:
+  frontend_angular:
     image: nginx:alpine
     container_name: todo-angular-frontend
     ports:
       - 4200:80
     depends_on:
-      - backend
+      - backend_springboot
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
       - ./todo-angular-frontend/dist/todo-angular-frontend/:/usr/share/nginx/html
     networks:
       - todo-angular-frontend-network
+
+
+volumes:
+  taskdb_data:
 
 networks:
   todos-springboot-backend-network:

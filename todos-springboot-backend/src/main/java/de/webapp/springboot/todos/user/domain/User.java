@@ -7,7 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 
-@Table(name = "User")
+@Table(name = "TASK_CREATOR")
 @Data
 @Builder
 @Wither
