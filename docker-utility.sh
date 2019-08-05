@@ -88,7 +88,7 @@ sadMan(){
 
 confusedMan(){
     echo '        *******         '
-    echo '     \''| . . |         '
+    echo '       `| . . |         '
     echo '        |  ^  |         '
     echo '        |  ~  |         '
     echo '!!! --- \_____/ --- !!!'
@@ -146,7 +146,7 @@ checkWhichCommandToRun() {
           ;;
        0)
           echo 'Doing nothing hae....'
-          sadMan
+          confusedMan
           exit
           ;;
        *)
