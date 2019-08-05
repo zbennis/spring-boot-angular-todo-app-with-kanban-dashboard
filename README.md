@@ -1,4 +1,4 @@
-# Task web App with a Kanban-Dashboard  [![Build Status](https://travis-ci.com/zbennis/spring-boot-angular-todo-app-with-kanban-dashboard.svg?token=zHqcVD8zUzTqHSqfzYUB&branch=master)](https://travis-ci.com/zbennis/spring-boot-angular-todo-app-with-kanban-dashboard)
+# Task web App with a Kanban-Dashboard  [![Build Status](https://travis-ci.com/zbennis/spring-boot-angular-todo-app-with-kanban-dashboard.svg?token=zHqcVD8zUzTqHSqfzYUB&branch=master)](https://travis-ci.com/zbennis/spring-boot-angular-todo-app-with-kanban-dashboard) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=task-kanban-dashboard-app&metric=alert_status)](https://sonarcloud.io/dashboard?id=task-kanban-dashboard-app)
 A todo app made with spring boot(2.1.6), angular(8.1.1) as main technologies as well as other technologies...
 
 ### Demo as gif
