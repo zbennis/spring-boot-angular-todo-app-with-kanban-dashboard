@@ -1,10 +1,12 @@
 package de.webapp.springboot.todos.user.domain;
 
+import de.webapp.springboot.todos.project.general.domain.Project;
 import lombok.*;
 import lombok.experimental.Wither;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 
 @Table(name = "TASK_CREATOR")
@@ -47,5 +49,9 @@ public class User {
     @Column(name = "PASSWORD")
     @NotNull
     private String password;
+
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Project> projects;
+
 
 }

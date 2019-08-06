@@ -1,5 +1,5 @@
 server.port: 2604
-spring.profiles.active: prod
+spring.profiles.active: dev
 
 ---
 spring:
@@ -13,7 +13,7 @@ spring:
   profiles: dev
   datasource:
     driverClassName: org.h2.Driver
-    url: jdbc:h2:mem:todoappdb;MODE=PostgreSQL
+    url: jdbc:h2:mem:taskdb;MODE=PostgreSQL
     platform: h2
     continue-on-error: false
   h2:

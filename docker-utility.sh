@@ -112,12 +112,12 @@ pruneDockerSystemWithUnusedImages() {
 
 displayExistingImages() {
   echo 'Displaying existing images:'
-  docker images -q
+  docker images
 }
 
 displayRunningContainers() {
  echo 'Displaying running containers:'
- docker container ps
+ docker container ls
 }
 
 
