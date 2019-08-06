@@ -1,5 +1,6 @@
 package de.webapp.springboot.todos.todo.domain;
 
+import de.webapp.springboot.todos.project.general.domain.Project;
 import de.webapp.springboot.todos.user.domain.User;
 import lombok.*;
 import lombok.experimental.Wither;
@@ -45,5 +46,10 @@ public class TodoEntry {
     @ManyToOne
     @JoinColumn(name = "task_creator")
     private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "project")
+    private Project project;
+
 
 }
