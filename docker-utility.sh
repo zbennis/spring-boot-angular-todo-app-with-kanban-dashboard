@@ -71,6 +71,7 @@ runDockerComposeDown() {
 }
 
 happyMan() {
+    echo '        ///|\\\         '
     echo '        *******         '
     echo '        | . . |         '
     echo '        |  ^  |         '
@@ -79,6 +80,7 @@ happyMan() {
 }
 
 sadMan(){
+    echo '        \\\\\\\         '
     echo '        *******         '
     echo '        | . . |         '
     echo '        |  ^  |         '
@@ -87,6 +89,7 @@ sadMan(){
 }
 
 confusedMan(){
+    echo '        ///////         '
     echo '        *******         '
     echo '       `| . . |         '
     echo '        |  ^  |         '
