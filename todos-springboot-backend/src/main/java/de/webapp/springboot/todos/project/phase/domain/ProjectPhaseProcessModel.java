@@ -1,4 +1,4 @@
-package de.webapp.springboot.todos.project.general.domain;
+package de.webapp.springboot.todos.project.phase.domain;
 
 public enum ProjectPhaseProcessModel {
 

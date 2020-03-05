@@ -8,6 +8,7 @@ import {LogoutComponent} from './logout/logout.component';
 import {RouteGuardsService} from './shared/service/route-guards.service';
 import {TodoAddEditComponent} from './todo-add-edit/todo-add-edit.component';
 import {SignupPageComponent} from './signup-page/signup-page.component';
+import {ConnectionErrorComponent} from './connection-error/connection-error.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'todos/:userIdentifier', component: TodosListComponent, canActivate: [RouteGuardsService]},
   {path: 'todos/:userIdentifier/new', component: TodoAddEditComponent, canActivate: [RouteGuardsService]},
   {path: 'todos/:userIdentifier/:todoId', component: TodoAddEditComponent, canActivate: [RouteGuardsService]},
+  {path: 'connectionError', component: ConnectionErrorComponent},
   {path: '**', component: ErrorComponent}
 ];
 

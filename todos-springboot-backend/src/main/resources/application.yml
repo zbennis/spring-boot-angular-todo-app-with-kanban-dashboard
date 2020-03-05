@@ -1,5 +1,5 @@
 server.port: 2604
-spring.profiles.active: dev
+spring.profiles.active: prod
 
 ---
 spring:
@@ -37,9 +37,9 @@ spring:
   datasource:
     driverClassName: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/taskdb
-    username: taskapp_db_admin
-    password: taskuser123456
-  jpa: #spring.jpa.properties.hibernate.schema_update.unique_constraint_strategy=
+    username: postgres
+    password: root
+  jpa:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQL95Dialect
@@ -63,5 +63,5 @@ spring:
 
 logging:
   level:
-    root: INFO
-    de.webapp.springboot.todos: INFO
+    root: DEBUG
+    de.webapp.springboot.todos: DEBUG

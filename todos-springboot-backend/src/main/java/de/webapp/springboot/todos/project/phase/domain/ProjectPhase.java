@@ -25,8 +25,8 @@ public class ProjectPhase {
     private String phaseNumber;
     private String phaseName;
     private String phaseGoal;
-    private LocalDateTime start;
-    private LocalDateTime end;
+    private LocalDateTime phase_start;
+    private LocalDateTime phase_end;
 
     @ManyToOne
     @JoinColumn(name = "project")

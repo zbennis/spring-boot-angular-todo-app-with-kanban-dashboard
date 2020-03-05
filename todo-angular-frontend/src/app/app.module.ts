@@ -20,6 +20,7 @@ import {RouterModule} from '@angular/router';
 import {HttpRequestInterceptorService} from './shared/service/http-request-interceptor.service';
 import {MatButtonToggleModule, MatCard, MatCardModule} from '@angular/material';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { ConnectionErrorComponent } from './connection-error/connection-error.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     LogoutComponent,
     TodoAddEditComponent,
     SignupPageComponent,
+    ConnectionErrorComponent,
   ],
   imports: [
     BrowserModule,
