@@ -8,7 +8,7 @@ A todo app made with spring boot(2.1.6), angular(8.1.1) as main technologies as 
 ![](/gifs/todo-app.gif)
 
 
-## Run with docker
+## Run with docker-compose
 
 1. The first step is to build both of the modules (backend and frontend):
     1.1.  cd to ./todos-springboot-backend and run ./gradlew build.
