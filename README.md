@@ -31,11 +31,3 @@ To serve the frontend angular app navigate to the frontend directory and run the
 1. yarn install
 2. yarn start
 3. Open this url (http://localhost:4200) in your favorite browser.  
-
-
-### TODOS 
-1. Allow users to signUp (maybe with activation mail)
-2. Integrate a reasonable security, since we are using a basic hardcoded version for now
-3. Add Unit and Integration tests
-
-
