@@ -3,7 +3,7 @@ dist: trusty
 
 branches:
   only:
-    - master
+    - projectManagementFeature
 
 addons:
   sonarcloud:

@@ -1,4 +1,13 @@
-#!/usr/bin/env bash
+#!/bin/sh
+
+#title           :docker-utiliy.sh
+#description     :This script serves as a quick helper to monitor the docker system
+#todo            :Add more commands if needed
+#author		     :Zakaria Bennis
+#date            :20190806
+#version         :0.1
+#usage		     :sudo sh ./docker-utility.sh
+#==============================================================================
 
 set -e
 
@@ -7,23 +16,23 @@ FRONTEND=false
 BACKEND=false
 
 displayMenu() {
-  echo 'Welcome to the task app docker-compose helper, please choose between the following functionalities:'
-  echo '1 - Run docker-compose up'
-  echo '2 - Run docker-compose down'
-  echo '3 - Remove all stopped container and dangling images etc...'
-  echo '4 - Remove all stopped container and dangling/unused images etc...'
-  echo '5 - Display docker images'
-  echo '6 - Display running containers'
-  echo '0 - do nothing... :('
-  echo 'Please choose a command between(1 and 6):'
-  read commandNumber
+    echo 'Welcome to the task app docker-compose helper, functionalities are listed below:'
+    echo '1 - Run docker-compose up'
+    echo '2 - Run docker-compose down'
+    echo '3 - Remove all stopped containers and dangling images etc...'
+    echo '4 - Remove all stopped containers and dangling/unused images etc...'
+    echo '5 - Display docker images'
+    echo '6 - Display running containers'
+    echo '0 - do nothing... :('
+    echo 'Please choose a command between(1 and 6):'
+    read commandNumber
 }
 
 withBuild(){
-  echo 'Do we need a new backend build(y/n)?'
-  read BACKEND  
-  echo 'Do we need a new frontend build(y/n)?'
-  read FRONTEND
+    echo 'Do we need a new backend build(y/n)?'
+    read BACKEND
+    echo 'Do we need a new frontend build(y/n)?'
+    read FRONTEND
 }
 
 checkRoot(){
@@ -54,47 +63,28 @@ runCustomizedDockerComposeUp(){
         yarn build --prod
         cd ..
     fi
+    if ( ps aux | grep -q "postgresql"); then
+        echo 'postgres sql is already running on this machine'
+        echo 'Stopping service -> postgresql...'
+        systemctl stop postgresql
+        echo 'service -> postgresql was stopped successfully...'
+        
+    fi
+    
     echo 'Do you want to run docker in detached mode(y/n)?'
     read detached
     if [ "$detached" = "y" ]; then
-    echo 'Running docker-compose up in detached mode....'
-    docker-compose up -d
+        echo 'Running docker-compose up in detached mode....'
+        docker-compose up -d
     else
-    echo 'Running docker-compose up....'
-    docker-compose up
+        echo 'Running docker-compose up....'
+        docker-compose up
     fi
 }
 
 runDockerComposeDown() {
     echo 'Running docker-compose down'
     docker-compose down
-}
-
-happyMan() {
-    echo '        ///|\\\         '
-    echo '        *******         '
-    echo '        | . . |         '
-    echo '        |  ^  |         '
-    echo '        | __/ |         '
-    echo '!!! --- \_____/ --- !!!'
-}
-
-sadMan(){
-    echo '        \\\\\\\         '
-    echo '        *******         '
-    echo '        | . . |         '
-    echo '        |  ^  |         '
-    echo '        |  \  |         '
-    echo '!!! --- \_____/ --- !!!'
-}
-
-confusedMan(){
-    echo '        ///////         '
-    echo '        *******         '
-    echo '       `| . . |         '
-    echo '        |  ^  |         '
-    echo '        |  ~  |         '
-    echo '!!! --- \_____/ --- !!!'
 }
 
 pruneDockerSystem() {
@@ -115,7 +105,7 @@ pruneDockerSystemWithUnusedImages() {
 
 displayExistingImages() {
   echo 'Displaying existing images:'
-  docker images
+  docker images -q
 }
 
 displayRunningContainers() {
@@ -124,43 +114,82 @@ displayRunningContainers() {
 }
 
 
-checkWhichCommandToRun() {
+happyMan() {
+    echo 'Happy      ///|\\\         '
+    echo 'Man        *******         '
+    echo '           | . . |         '
+    echo '           |  ^  |         '
+    echo '           | __/ |         '
+    echo '           \_____/         '
+    echo 'Docker   _______           '
+    echo '        |       \__        '
+    echo '        \ *     __/        '
+    echo '!!! ---  \_____/    --- !!!'
+}
 
+sadMan(){
+    echo 'Sad        \\\\\\\         '
+    echo 'Man        *******         '
+    echo '           | . . |         '
+    echo '           |  ^  |         '
+    echo '           |  \  |         '
+    echo '           \_____/         '
+    echo 'Docker   _______           '
+    echo '        |       \__        '
+    echo '        \ *     __/        '
+    echo '!!! ---  \_____/    --- !!!'
+}
+
+confusedMan(){
+    echo 'Confused   ///////         '
+    echo 'Man        *******         '
+    echo '          `| . . |         '
+    echo '           |  ^  |         '
+    echo '           |  ~  |         '
+    echo '           \_____/         '
+    echo 'Docker   _______           '
+    echo '        |       \__        '
+    echo '        \ *     __/        '
+    echo '!!! ---  \_____/    --- !!!'
+}
+
+checkWhichCommandToRun() {
+    
     case ${commandNumber} in
-       1)
-          runCustomizedDockerComposeUp
-          happyMan
-          ;;
-       2)
-          runDockerComposeDown
-          happyMan
-          ;;
-       3)
-          pruneDockerSystem
-          ;;
-       4)
-          pruneDockerSystemWithUnusedImages
-          ;;
-       5)
-          displayExistingImages
-          ;;
-       6)
-          displayRunningContainers
-          ;;
-       0)
-          echo 'Doing nothing hae....'
-          confusedMan
-          exit
-          ;;
-       *)
-          echo 'Wrong command you should give a number between 0 and 6'
-          exit
-          ;;
+        1)
+            runCustomizedDockerComposeUp
+            happyMan
+        ;;
+        2)
+            runDockerComposeDown
+            happyMan
+        ;;
+        3)
+            pruneDockerSystem
+        ;;
+        4)
+            pruneDockerSystemWithUnusedImages
+        ;;
+        5)
+            displayExistingImages
+        ;;
+        6)
+            displayRunningContainers
+        ;;
+        0)
+            echo 'Doing nothing hae....'
+            confusedMan
+            exit
+        ;;
+        *)
+            echo 'Wrong command you should give a number between 0 and 6'
+            exit
+        ;;
     esac
 }
 
 checkRoot
-while [ ! $commandNumber -eq 0 ]
+while ( !$commandNumber -eq 0 )
 do
     displayMenu
     checkWhichCommandToRun
